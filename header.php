@@ -12,11 +12,12 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?> >
-    <header class="site-header">
-      <h1>
-        <a href="<?php echo home_url(); ?>">
-          SFL Distribution
-        </a>
-      </h1>
-    </header>
+    <div class="container">
+      <header class="site-header">
+        <h1>
+          <a href="<?php echo home_url(); ?>">
+            SFL Distribution
+          </a>
+        </h1>
+      </header>
 
