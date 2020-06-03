@@ -16,4 +16,4 @@ add_action( 'after_setup_theme' , 'sfldistribution_setup' );
 function sfldistribution_scripts_and_styles() {
   wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
-add_action( 'wp_enqueue_scripts', 'sfldistribution_scripts_and_style' );
+add_action( 'wp_enqueue_scripts', 'sfldistribution_scripts_and_styles' );
