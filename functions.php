@@ -9,6 +9,7 @@ if ( ! function_exists( 'sfl_setup' ) ) :
     */
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'menus' );
   }
 endif;
 add_action( 'after_setup_theme' , 'sfl_setup' );
