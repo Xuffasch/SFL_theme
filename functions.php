@@ -17,3 +17,8 @@ function sfldistribution_scripts_and_styles() {
   wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'sfldistribution_scripts_and_styles' );
+
+/**
+ * Create the main menu
+ */
+include './inc/menus.php';
