@@ -20,8 +20,8 @@
           </a>
         </h1>
         <?php wp_nav_menu( array(
-          'theme_location' => 'main_menu',
-          'container_class' => 'main_menu_class'));
+          'theme_location' => 'primary',
+          'container_class' => 'menu-primaire'));
         ?>
       </header>
 
