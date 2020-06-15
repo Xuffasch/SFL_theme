@@ -35,5 +35,5 @@ add_action( 'wp_enqueue_scripts', 'sfl_scripts_and_styles' );
 require_once( get_template_directory().'/inc/menus.php' );
 
 /** Declare sidebars names */
-require_once( get_template_directory().'inc/sidebars.php' );
+require_once( get_template_directory().'/inc/sidebars.php' );
 
