@@ -16,32 +16,33 @@
   </head>
 
   <body <?php body_class(); ?> >
-    <header class=header-container>
-      <nav class="nav-container">
-        <!-- 1. Site logo - anchor to home page -->
-        <div class="logo-container">
-          <a href="<?php echo home_url('/'); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/fruits_logo.svg" alt="Logo" class="site-logo">
-          </a>
-        </div>
-        <!-- 2. Site title -->
-        <h1 class="site-title">SFL Distribution</h1>
-        <!-- 3. Menu button for mobile navigation -->
-        <div class="btn-container">
-          <button class="menu-button" id="menu-button">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div> 
-          </button>
-        </div>
-        <!-- 4. Site principal navigation menu -->
-        <?php wp_nav_menu( array(
-          'theme_location' => 'primary',
-          'container_class' => 'menu-container'));
-        ?>
-      </nav>
-    </header>
+    <div class="z-position">
+      <header class=header-container>
+        <nav class="nav-container">
+          <!-- 1. Site logo - anchor to home page -->
+          <div class="logo-container">
+            <a href="<?php echo home_url('/'); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/fruits_logo.svg" alt="Logo" class="site-logo">
+            </a>
+          </div>
+          <!-- 2. Site title -->
+          <h1 class="site-title">SFL Distribution</h1>
+          <!-- 3. Menu button for mobile navigation -->
+          <div class="btn-container">
+            <button class="menu-button" id="menu-button">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div> 
+            </button>
+          </div>
+          <!-- 4. Site principal navigation menu -->
+          <?php wp_nav_menu( array(
+            'theme_location' => 'primary',
+            'container_class' => 'menu-container'));
+          ?>
+        </nav>
+      </header>
 
-    <!-- Hook to indicate the opening of the <body> tag -->
-    <?php wp_body_open() ?>
+      <!-- Hook to indicate the opening of the <body> tag -->
+      <?php wp_body_open() ?>
 
