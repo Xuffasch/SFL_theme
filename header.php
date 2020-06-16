@@ -28,7 +28,7 @@
         <h1 class="site-title">SFL Distribution</h1>
         <!-- 3. Menu button for mobile navigation -->
         <div class="btn-container">
-          <button class="menu-button">
+          <button class="menu-button" id="menu-button">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div> 
@@ -44,6 +44,4 @@
 
     <!-- Hook to indicate the opening of the <body> tag -->
     <?php wp_body_open() ?>
-    <!-- div element to position the main content of any page - <div> tag closed by footer.php -->
-    <div class="content-container">
 
