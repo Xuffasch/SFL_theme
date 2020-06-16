@@ -1,5 +1,5 @@
   <!-- END OF THEME -->
-    <?php wp_footer(); ?>
-    </body>
-  </div> <!-- .container div -->
+    </div> <!-- End of .content-container -->
+  <?php wp_footer(); ?>
+  </body>
 </html>
