@@ -16,7 +16,6 @@
   </head>
 
   <body <?php body_class(); ?> >
-    <div class="z-position">
       <header class=header-container>
         <nav class="nav-container">
           <!-- 1. Site logo - anchor to home page -->
