@@ -322,6 +322,8 @@ body {
 
 .horizontal {
     width: 100%;
+    background: linear-gradient(to right, rgb(10, 10, 10, 0.02), rgb(0, 0, 0, 0.75), rgb(0, 0, 0, 0.02));
+    height: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -377,6 +379,14 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     padding: 8px;
+}
+
+iframe#main-video {
+    position: absolute;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
 }
 
 
@@ -460,7 +470,7 @@ body {
 
 /* Breakpoint 768px */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .site-title {
         flex: 5 0 auto;
     }
@@ -482,5 +492,8 @@ body {
     .menu>li {
         margin: 8px;
         padding: 4px;
+    }
+    iframe#main-video {
+        width: 50%;
     }
 }
