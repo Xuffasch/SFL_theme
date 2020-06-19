@@ -1,0 +1,145 @@
+/* Menu Settings */
+
+.site-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.menu-button {
+    display: inline-block;
+    border: 0;
+    background-color: transparent;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 32px;
+    height: 6px;
+    background-color: white;
+    margin: 6px;
+    transition: 0.4s;
+    border-radius: 3px;
+}
+
+
+/* nav menu button animation when clicked */
+
+.change>div {
+    background-color: gold;
+}
+
+.change .bar1 {
+    /* Rotate first bar */
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    /* Fade out the second bar */
+    opacity: 0;
+}
+
+.change .bar3 {
+    /* Rotate last bar */
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+/* Mobile display */
+
+.nav-container {
+    /* appearence */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: transparent;
+    height: auto;
+    /* children display */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    z-index: 999;
+    /* background */
+    background: linear-gradient(rgb(0, 0, 0, 0.35), rgb(0, 0, 0, 0.005));
+}
+
+.nav-container * {
+    color: white;
+}
+
+.btn-container>button:hover>div {
+    background-color: gold;
+}
+
+.logo-container {
+    flex: 0 0 auto;
+    padding: 12px;
+}
+
+.site-title {
+    flex: 2 1 auto;
+    padding: 12px;
+    font-size: 2rem;
+}
+
+.menu-container {
+    /* appearence */
+    display: none;
+    flex: 0 0 100%;
+    order: 4;
+    background-color: transparent;
+}
+
+.menu {
+    /* Appearence */
+    list-style-type: none;
+    /* children display */
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0;
+    background: -webkit-linear-gradient(rgb(0, 0, 0, 0.02), rgb(0, 0, 0, 0.55));
+}
+
+.menu-toggle-on {
+    display: block;
+}
+
+.menu>li {
+    margin: 0px;
+    padding: 8px 8px;
+    font-size: 1.5rem;
+}
+
+.menu::after {
+    /* Add a last child element to allow the -webkit-linear-gradient to appear */
+    content: "";
+}
+
+@media (min-width: 1024px) {
+    .site-title {
+        flex: 5 0 auto;
+    }
+    .btn-container {
+        display: none;
+    }
+    .menu-container {
+        flex-basis: auto;
+        display: flex;
+    }
+    .menu {
+        /* children display */
+        display: flex;
+        flex-wrap: no-wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        background: transparent;
+    }
+    .menu>li {
+        margin: 8px;
+        padding: 4px;
+    }
+}
