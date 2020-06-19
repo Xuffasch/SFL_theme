@@ -14,7 +14,7 @@
     <h1>
       <a href="#section-position-1">Nos services - nos engagements</a>
     </h1>
-    <div class="section-articles">
+    <div class="services-articles">
       <article id="article-1">
         <h1>Selectionner</h1>
         <p>Choisissez les produits dont nous vous assurons l'approvisionnement une fois commandée</p>
@@ -28,7 +28,7 @@
         <p>Pour ça on ne sait pas faire ! A vous de jouer...</p>
       </article>
     </div>
-    <div class="section-articles-titles">
+    <div class="services-articles-titles">
       <div id="title-1">
         <img src="<?php echo get_template_directory_uri(); ?>/images/vegetable.svg" alt="selectionner" class="article-img">
       </div>

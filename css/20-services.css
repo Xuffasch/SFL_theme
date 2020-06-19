@@ -1,6 +1,6 @@
 /* Mobile settings */
 
-.section-articles {
+.services-articles {
     /* Position */
     display: flex;
     /* Size */
@@ -13,19 +13,19 @@
     background-color: transparent;
 }
 
-.section-articles article {
+.services-articles article {
     flex: 1 1 100%;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-.section-articles>#article-2,
-.section-articles>#article-3 {
+.services-articles>#article-2,
+.services-articles>#article-3 {
     display: none;
 }
 
-.section-articles-titles {
+.services-articles-titles {
     /* Position */
     display: inline-flex;
     align-items: center;
@@ -37,7 +37,7 @@
     background-color: transparent;
 }
 
-.section-articles-titles>div {
+.services-articles-titles>div {
     flex: 1 1 30%;
     flex-wrap: nowrap;
     display: flex;
@@ -46,7 +46,7 @@
     margin: 1% 2%;
 }
 
-.section-articles-titles>div>img {
+.services-articles-titles>div>img {
     width: 48px;
     height: 48px;
 }
