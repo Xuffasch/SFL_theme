@@ -32,6 +32,7 @@ function sfl_scripts_and_styles() {
 
   if ( is_front_page() ) {
     wp_enqueue_style( 'img_top', get_template_directory_uri().'/css/1-img-top.css', array('style') );
+    wp_enqueue_style( 'sections', get_template_directory_uri().'/css/front-sections.css', array('style') );
     wp_enqueue_style( 'front', get_template_directory_uri().'/css/20-services.css', array('style') );
   }
 }
