@@ -1,4 +1,6 @@
-/* Menu Settings */
+/* Menu Settings - smallest size : 
+orientation : portrait and landscape,
+max-width : 600px */
 
 .site-logo {
     width: 36px;
@@ -76,7 +78,7 @@
 
 .logo-container {
     flex: 0 0 auto;
-    padding: 12px;
+    padding: 8px;
 }
 
 .site-title {
@@ -119,7 +121,7 @@
     content: "";
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 600px) {
     .site-title {
         flex: 5 0 auto;
     }
