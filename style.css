@@ -175,10 +175,6 @@ html {
     box-sizing: inherit;
 }
 
-body {
-    margin: 0;
-}
-
 button:focus,
 button:active {
     /* Override Chrome button default style */
@@ -222,7 +218,7 @@ body {
 }
 
 .section-container>h1 {
-    margin: 0 auto;
+    margin: 12px auto;
     padding: 12px;
 }
 
