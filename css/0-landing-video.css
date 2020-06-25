@@ -1,5 +1,12 @@
+.content-container#landing {
+    background-color: transparent;
+}
+
 #section-landing-video {
     margin-top: 54px;
+    /* width: 90%; */
+    /* height: 70%; */
+    margin-bottom: 54px;
 }
 
 
@@ -10,18 +17,27 @@
     margin: 12px auto;
     /* Size */
     width: 90%;
+    height: 100%;
     /* Children display */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-gap: 0.5em;
+    grid-template-columns: 25% 50% 24%;
+    grid-template-rows: 30% 65% 20%;
+    column-gap: 1%;
+    row-gap: 1%;
+}
+
+@media (min-width: 375px) {
+    .landing-video-grid {
+        height: 80%;
+    }
 }
 
 @media (orientation: landscape) {
     .landing-video-grid {
-        grid-template-columns: 300px 160px;
+        margin: 8px auto;
+        grid-template-columns: 65% 34%;
         grid-template-rows: 29% 40% 29%;
-        grid-gap: 20px;
+        grid-gap: auto;
     }
 }
 
@@ -31,24 +47,33 @@
 .grid-item.section-title {
     grid-column: 1 / 4;
     grid-row: span 1;
-    text-align: center;
-    font-size: 0.75em;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
 }
 
 @media (orientation: landscape) {
     .grid-item.section-title {
         grid-column: 2 / 3;
         grid-row: 1 / 2;
+        /* margin: 8px auto; */
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
     }
 }
 
-.grid-item.section-title>h1 {
+.grid-item.section-title h1 {
     color: white;
-    font-size: 2em;
+    font-size: 1.75em;
+}
+
+.grid-item.section-title h2 {
+    font-size: 1.25em;
 }
 
 .grid-item.section-title>*+* {
@@ -63,7 +88,6 @@
     width: 100%;
     grid-column: 1 / 4;
     grid-row: span 1;
-    display: flex;
 }
 
 .video {
@@ -117,19 +141,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 
 @media (orientation: landscape) {
     .grid-item.order {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 #btn-order {
     /* Position */
-    margin: auto;
     /* Size */
     padding: 12px;
     /* Appearance */
@@ -144,7 +171,9 @@
 .grid-item.youtube {
     grid-column: 3 / 4;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 @media (orientation: landscape) {

@@ -1,9 +1,9 @@
-<div class="content-container">
+<div class="content-container" id="landing">
   <section class="section-container" id="section-landing-video">
     <div class="landing-video-grid">
       <div class="grid-item section-title">
         <h1>Livraison en IDF</h1>
-        <h1>du Lundi au Samedi de 7h à 19h</h1>
+        <h2>Lundi au Samedi - 7h à 19h</h2>
       </div>
 
       <div class="grid-item video">

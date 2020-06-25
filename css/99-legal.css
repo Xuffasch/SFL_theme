@@ -1,0 +1,32 @@
+footer {
+    background-color: black;
+}
+
+.footer-container {
+    width: 85%;
+    color: white;
+    display: flex;
+}
+
+.footer-container>.flex-content {
+    margin: 20px 8px 4px 20px;
+    flex-basis: 20%;
+}
+
+.footer-container h2,
+.footer-container h3 {
+    margin-bottom: 8px;
+    padding: 0px;
+}
+
+.footer-container h2 {
+    font-size: 1em;
+}
+
+.footer-container h3 {
+    font-size: 1em;
+}
+
+.flex-content#contacts {
+    flex: 2 1 40%;
+}
