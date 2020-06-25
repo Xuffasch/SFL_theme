@@ -1,11 +1,23 @@
-.section-container {
-    /* Position */
+/* .section-container {
+    /* Position
     position: absolute;
     left: 0vw;
-    /* Sizes */
+    /* Sizes
     width: 100%;
     height: 60vh;
-    /* Children display */
+    /* Children display
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.content-container {
+    background-color: transparent;
+    width: 100%
+}
+
+.section-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +25,18 @@
 
 .section-position {
     position: absolute;
-    top: -74px;
+    top: -54px;
+}
+
+
+/* #section-1 {
+    /* top: 80vh;
+    background-color: rgb(100, 100, 100);
+}
+
+#section-2 {
+    /* top: 140vh;
+    background-color: rgb(150, 150, 150);
 }
 
 .section-container>h1 {
@@ -22,30 +45,24 @@
 }
 
 .section-container a {
-    /* Appearence */
+    /* Appearence
     font-size: 2em;
     border-radius: 6px;
 }
 
-#section-1 {
-    top: 80vh;
-    background-color: rgb(100, 100, 100);
-}
-
-#section-2 {
-    top: 140vh;
-    background-color: rgb(150, 150, 150);
-}
-
 #to-top {
-    /* Position */
+    /* Position
     position: absolute;
     bottom: 0;
     right: 0;
     /* Sizes */
-    /* width: 42px;
+
+
+/* width: 42px;
   height: 42px; */
-    /* Appearence */
+
+
+/* Appearence
     border: none;
     background-color: transparent;
 }
@@ -53,3 +70,15 @@
 #to-top>a {
     font-size: 3em;
 }
+
+@media screen and (orientation: landscape) and (max-width: 600px) {
+    .section-container {
+        height: 80vh;
+    }
+    #section-1 {
+        top: 100vh;
+    }
+    #section-2 {
+        top: 180vh;
+    }
+} */

@@ -1,8 +1,11 @@
 <?php get_header(); ?>
-  <section class="img-top-screen" id="top-screen">
+  <div class="img-background" id="img-background">
+    <?php get_template_part('parts/0-landing-video')?>
+  </div>
+  <!-- <section class="img-top-screen" id="top-screen">
     <div class="horizontal">
-      <div class="img-top-screen-content">
-        <h2>SFL Distribution vous livre en Ile-de-France</h2>
+      <div class="img-top-screen-title">
+        <h2>Livraison en Ile-de-France</h2>
         <h3>du Lundi au Samedi de 7h à 19h30</h3>
       </div>
       <iframe src="https://www.youtube.com/embed/JRQ-w0VqFek" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="main-video">
@@ -30,13 +33,13 @@
     </div>
     <div class="services-articles-titles">
       <div id="title-1">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/vegetable.svg" alt="selectionner" class="article-img">
+        <img src="<--?php echo get_template_directory_uri(); ?>/images/vegetable.svg" alt="selectionner" class="article-img">
       </div>
       <div id="title-2">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/calendar2.svg" alt="selectionner" class="article-img">
+        <img src="<--?php echo get_template_directory_uri(); ?>/images/calendar2.svg" alt="selectionner" class="article-img">
       </div>
       <div id="title-3">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/cooking2.svg" alt="selectionner" class="article-img">
+        <img src="<--?php echo get_template_directory_uri(); ?>/images/cooking2.svg" alt="selectionner" class="article-img">
       </div>
     </div>
   </section>
@@ -54,12 +57,12 @@
     <div class="footer-content">
       <h3 class="footer-header">Tous les droits de reproduction réservés à SFL Distribution</h3>
     </div>
-  </footer>
+  </footer> -->
   <!-- Resize the video when the window resizes 
         1) mobile portrait landscape
         2) desktop browser
   --> 
-  <script>
+  <!-- <script>
     window.onload = window.onresize = function () {
       console.log("onsize is used");
       console.log("window width : " + window.innerWidth);
@@ -81,5 +84,5 @@
       console.log("video width : " + video.style.width);
       console.log("video height : " + video.style.height);
     }
-  </script>
+  </script> -->
 <?php get_footer(); ?>
