@@ -1,12 +1,32 @@
-.content-container#landing {
-    background-color: transparent;
+#landing {
+    /* background image */
+    background-image: linear-gradient(to bottom, #AAA, white), url("../images/screenshot.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
-#section-landing-video {
-    margin-top: 54px;
-    /* width: 90%; */
-    /* height: 70%; */
-    margin-bottom: 54px;
+.content-container#landing {
+    padding-top: 54px;
+    padding-bottom: 54px;
+    height: 80vh;
+}
+
+@media (orientation: landscape) {
+    .content-container#landing {
+        padding-top: 54px;
+        padding-bottom: 54px;
+        height: 100vh;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 768px) {
+    .content-container#landing {
+        padding-top: 54px;
+        padding-bottom: 54px;
+        height: 60vh;
+    }
 }
 
 
@@ -17,7 +37,6 @@
     margin: 12px auto;
     /* Size */
     width: 90%;
-    height: 100%;
     /* Children display */
     display: grid;
     grid-template-columns: 25% 50% 24%;
@@ -26,18 +45,10 @@
     row-gap: 1%;
 }
 
-@media (min-width: 375px) {
-    .landing-video-grid {
-        height: 80%;
-    }
-}
-
 @media (orientation: landscape) {
     .landing-video-grid {
-        margin: 8px auto;
         grid-template-columns: 65% 34%;
         grid-template-rows: 29% 40% 29%;
-        grid-gap: auto;
     }
 }
 
@@ -89,6 +100,9 @@
     grid-column: 1 / 4;
     grid-row: span 1;
 }
+
+
+/* settings to allow responsive Youtube video element */
 
 .video {
     overflow: hidden;

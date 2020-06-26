@@ -27,16 +27,18 @@ add_image_size('square', 480, 0, false);
 
 /** Include style.css file to pages. The array could contain other css files style could depend on and should be downloaded before style.css */
 function sfl_scripts_and_styles() {
+  $template_folder = get_template_directory_uri();
+
   wp_enqueue_style( 'style', get_stylesheet_uri(), array() );
   wp_enqueue_style( 'nav', get_stylesheet_directory_uri().'/css/0-nav.css', array('style'));
   wp_enqueue_style( 'legal', get_stylesheet_directory_uri().'/css/99-legal.css', array('style') ); 
 
   if ( is_front_page() ) {
-    wp_enqueue_style( 'img-background', get_template_directory_uri().'/css/0-img-background.css', array('style') );
     wp_enqueue_style( 'landing-video', get_template_directory_uri().'/css/0-landing-video.css', array('style') );
     wp_enqueue_style( 'services', get_template_directory_uri().'/css/10-services.css', array('style') );
     wp_enqueue_style( 'products', get_template_directory_uri().'/css/20-products.css', array('style') );
     wp_enqueue_style( 'hours', get_template_directory_uri().'/css/30-hours.css', array('style') );
+    // wp_enqueue_script( "front-scrolling", $template_folder.'/js/front-scrolling.js' );
   }
 }
 add_action( 'wp_enqueue_scripts', 'sfl_scripts_and_styles' );
