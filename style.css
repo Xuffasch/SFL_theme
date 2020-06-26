@@ -166,7 +166,7 @@ html {
     /* block element size includes border width */
     box-sizing: border-box;
     /* Default base font size depending on viewport width */
-    /* font-size: calc(1vw + 0.3em); */
+    font-size: calc(1vw + 0.3em);
 }
 
 *,
@@ -210,4 +210,16 @@ body {
 .section-position {
     position: relative;
     top: -54px;
+}
+
+.section-title {
+    margin: 28px auto;
+}
+
+.section-title a {
+    font-size: 2em;
+}
+
+.hide {
+    visibility: hidden;
 }
