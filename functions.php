@@ -38,7 +38,9 @@ function sfl_scripts_and_styles() {
     wp_enqueue_style( 'services', get_template_directory_uri().'/css/10-services.css', array('style') );
     wp_enqueue_style( 'products', get_template_directory_uri().'/css/20-products.css', array('style') );
     wp_enqueue_style( 'hours', get_template_directory_uri().'/css/30-hours.css', array('style') );
+    wp_enqueue_style( 'services-logo', $template_folder.'/css/9-services-logo.css', array('style') );
     // wp_enqueue_script( "front-scrolling", $template_folder.'/js/front-scrolling.js' );
+    wp_enqueue_script( "front-load-resize", $template_folder.'/js/front-load-resize.js');
   }
 }
 add_action( 'wp_enqueue_scripts', 'sfl_scripts_and_styles' );

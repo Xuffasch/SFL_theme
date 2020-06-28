@@ -17,7 +17,7 @@
 
   <body <?php body_class(); ?> >
       <header class=header-container>
-        <nav class="nav-container">
+        <nav class="nav-container" id="navBar">
           <!-- 1. Site logo - anchor to home page -->
           <div class="logo-container">
             <a href="<?php echo home_url('/'); ?>">
