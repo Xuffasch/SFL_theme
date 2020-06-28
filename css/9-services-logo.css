@@ -1,0 +1,26 @@
+.content-container#services-logo {
+    background: linear-gradient(rgb(0, 0, 0, 0.005), rgb(0, 0, 0, 0.55));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2;
+}
+
+#services-logo>div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#services-logo>div>img {
+    width: 32px;
+    height: 32px;
+}
+
+#services-logo>#paypal>img {
+    width: 28px;
+    height: 28px;
+}
