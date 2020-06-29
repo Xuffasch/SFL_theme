@@ -4,6 +4,7 @@ window.onload = window.onresize = function() {
 
     let landing = document.getElementById("landing");
     landing.style.paddingTop = navH;
+    landing.style.paddingBottom = navH;
 
     // let payment = document.getElementById("services-logo");
     // payment.style.height = navH;
