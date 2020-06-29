@@ -7,12 +7,14 @@
         <h1>7h à 19h</h1>
       </div>
 
-      <div class="grid-item follow-us">
-        <h2>Suivez notre quotidien sur </h2>
-      </div>
+      <div class="grid-item youtube-channel">
+        <div class="follow-us">
+          <h2>Nos coulisses</h2>
+        </div>
 
-      <div class="grid-item youtube">
+        <div class="youtube">
           <button id="btn-youtube"></button>
+        </div>
       </div>
 
       <div class="grid-item video">
