@@ -181,6 +181,10 @@ button:active {
     outline: none
 }
 
+button {
+    border: none;
+}
+
 a {
     color: white;
     font-weight: bold;
