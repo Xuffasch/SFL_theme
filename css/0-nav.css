@@ -1,7 +1,3 @@
-/* Menu Settings - smallest size : 
-orientation : portrait and landscape,
-max-width : 600px */
-
 .site-logo {
     width: 36px;
     height: 36px;
@@ -51,11 +47,17 @@ max-width : 600px */
 
 /* Mobile display */
 
-.nav-container {
-    /* appearence */
+.header-container {
+    /* Position */
     position: fixed;
     top: 0px;
     left: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.nav-container {
+    /* appearence */
     width: 100%;
     background-color: transparent;
     height: auto;
@@ -63,13 +65,19 @@ max-width : 600px */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    z-index: 999;
     /* background */
     background: linear-gradient(rgb(0, 0, 0, 0.35), rgb(0, 0, 0, 0.005));
 }
 
 .nav-container * {
     color: white;
+}
+
+@media (min-width: 1024px) {
+    .nav-container {
+        margin: 0 auto;
+        width: 1024px;
+    }
 }
 
 .btn-container>button:hover>div {
