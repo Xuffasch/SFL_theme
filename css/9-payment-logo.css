@@ -1,0 +1,40 @@
+.content-container#payment-logo {
+    /* background: linear-gradient(rgb(0, 0, 0, 0.005), rgb(0, 0, 0, 0.55)); */
+    background-color: #333;
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2;
+}
+
+#payment-logo>div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#payment-logo>div>img {
+    width: 36px;
+    height: 36px;
+}
+
+#payment-logo>#paypal>img {
+    width: 28px;
+    height: 28px;
+}
+
+@media (orientation: landscape) and (min-width: 769px) {
+    #payment-logo>div>img {
+        width: 48px;
+        height: 48px;
+    }
+    #payment-logo>#paypal>img {
+        width: 40px;
+        height: 40px;
+    }
+}

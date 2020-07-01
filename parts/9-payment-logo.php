@@ -1,4 +1,4 @@
-<div class="content-container" id="services-logo">
+<div class="content-container" id="payment-logo">
   <div class="payment-method" id="CB">
     <img src="<?php echo get_template_directory_uri(); ?>/images/payment-cartes-bancaires.svg" alt="paiement par carte bancaire">
     <!-- <h3>Carte Bancaire</h3> -->
