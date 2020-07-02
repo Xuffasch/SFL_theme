@@ -16,7 +16,7 @@ if ( ! function_exists( 'sfl_setup' ) ) :
     add_theme_support( 'woocommerce' );
   }
 endif;
-add_action( 'after_theme_setup' , 'sfl_setup' );
+add_action( 'after_setup_theme' , 'sfl_setup' );
 
 /** Declare default post thumbnail image sizes */
 set_post_thumbnail_size(960, 720, true);
