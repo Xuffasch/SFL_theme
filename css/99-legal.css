@@ -1,5 +1,6 @@
 footer {
     background-color: black;
+    order: 4;
 }
 
 .footer-container {

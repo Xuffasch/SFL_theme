@@ -1,5 +1,13 @@
-.content-container#services {
+.content-container#products {
     background-color: #888;
+    order: 2;
+}
+
+@media (orientation: portrait) and (min-width: 499px),
+(orientation: landscape) and (min-width: 769px) {
+    .content-container#products {
+        order: 1;
+    }
 }
 
 .product-grid {

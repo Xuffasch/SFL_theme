@@ -200,6 +200,12 @@ body {
     font-family: sans-serif;
 }
 
+.container-grid#front-page {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(5, auto);
+}
+
 .content-container {
     width: 100%;
 }

@@ -1,5 +1,6 @@
 .content-container#hours {
     background-color: #222;
+    order: 3;
 }
 
 .horaires-container {

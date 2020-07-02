@@ -1,10 +1,21 @@
 .content-container#services {
     background-color: #333;
+    order: 1;
+}
+
+@media (orientation: portrait) and (min-width: 499px),
+(orientation: landscape) and (min-width: 499px) {
+    .content-container#services {
+        order: 2;
+    }
+    .section-container#section-services {
+        margin: 0 auto;
+        width: 90%;
+    }
 }
 
 @media (orientation: landscape) and (min-width: 769px) {
     .section-container#section-services {
-        margin: 0 auto;
         width: 769px;
     }
 }
