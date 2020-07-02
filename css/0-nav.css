@@ -141,7 +141,7 @@
     content: "";
 }
 
-@media (min-width: 600px) {
+@media (min-width: 737px) {
     .site-title {
         flex: 5 0 auto;
     }
@@ -163,5 +163,6 @@
     .menu>li {
         margin: 8px;
         padding: 4px;
+        font-size: 14px;
     }
 }
