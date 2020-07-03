@@ -1,0 +1,38 @@
+.section-container {
+    width: 90%;
+    margin: 55px auto 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    column-gap: 4px;
+    row-gap: 4px;
+}
+
+.product {
+    padding: 4px;
+    background-color: orange;
+    border-radius: 8px;
+    color: #333;
+    display: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+@media (orientation: portrait) and (min-width: 767px) {
+    .section-container {
+        width: 767px;
+    }
+    #product-grid {
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(5, auto);
+        column-gap: 8px;
+        row-gap: 8px;
+    }
+    .product {
+        padding: 8px;
+    }
+}

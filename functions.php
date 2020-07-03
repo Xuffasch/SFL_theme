@@ -40,8 +40,10 @@ function sfl_scripts_and_styles() {
     wp_enqueue_style( 'hours', get_template_directory_uri().'/css/30-hours.css', array('style') );
     wp_enqueue_style( 'payment-logo', $template_folder.'/css/9-payment-logo.css', array('style') );
     wp_enqueue_style( 'delivery-logo', $template_folder.'/css/8-delivery-logo.css', array('style') );
-    // wp_enqueue_script( "front-scrolling", $template_folder.'/js/front-scrolling.js' );
-    wp_enqueue_script( "front-load-resize", $template_folder.'/js/front-load-resize.js');
+  }
+
+  if (is_tax() || is_post_type_archive( "product" )) {
+    wp_enqueue_style( 'products-pages', $template_folder.'/css/products/10-products-grid.css', array('style') );
   }
 }
 add_action( 'wp_enqueue_scripts', 'sfl_scripts_and_styles' );
