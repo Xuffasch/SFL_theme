@@ -200,6 +200,10 @@ body {
     font-family: sans-serif;
 }
 
+.page-title {
+    margin-top: 55px;
+}
+
 .container-grid#front-page {
     display: grid;
     grid-template-columns: 100%;

@@ -45,6 +45,15 @@ function sfl_scripts_and_styles() {
   if (is_tax() || is_post_type_archive( "product" )) {
     wp_enqueue_style( 'products-pages', $template_folder.'/css/products/10-products-grid.css', array('style') );
   }
+
+  if ( is_account_page() ) {
+    wp_enqueue_style( 'account', $template_folder.'/css/account/account.css', array('style') );
+  }
+
+  if ( is_cart() ) {
+    wp_enqueue_style( 'cart', $template_folder.'/css/cart/cart.css', array('style') );
+  }
+
 }
 add_action( 'wp_enqueue_scripts', 'sfl_scripts_and_styles' );
 
