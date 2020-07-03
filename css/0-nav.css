@@ -109,6 +109,10 @@
     background-color: transparent;
 }
 
+.menu>li:hover>a {
+    color: gold;
+}
+
 .menu {
     /* Appearence */
     list-style-type: none;
