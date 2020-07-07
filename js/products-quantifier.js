@@ -1,18 +1,33 @@
 jQuery(document).ready(function() {
     jQuery(".less").click(function() {
         console.log("Less button is click for item for" + this.id);
-        let counterId = $('.counter-' + this.id)[0].id;
+        let counter = jQuery('.counter-' + this.id)[0];
+
+        if (counter.innerText == "0") {
+            jQuery("#messages").text("Please add a quantity first");
+            return;
+        }
+
+        let counterId = jQuery('.counter-' + this.id)[0].id;
+        let counterNumber = counter.innerText;
+        let newQuantity = parseInt(counterNumber) - 1;
+
+        console.log("product_id : " + this.id);
+        console.log("counterId : " + counterId);
+        console.log("newQuantity : " + newQuantity);
+
         jQuery.ajax({
             type: "POST",
             url: ajaxurl,
             data: {
                 action: "remove_one_quantity",
                 product_id: this.id,
-                cart_item_id: counterId
+                cart_item_id: counterId,
+                new_quantity: newQuantity
             },
             success: function(output) {
-                console.log("quantité diminuée : ", output.data.newQty);
                 jQuery("#messages").text("Quantité diminuée");
+                jQuery("#" + output.data.itemId).text(output.data.newQty);
             },
             error: function(output) {
                 console.log("problème server")
@@ -46,8 +61,6 @@ jQuery(document).ready(function() {
                 new_quantity: newQuantity
             },
             success: function(output) {
-                console.log('nouvelle quantité : ' + output.data.newQty);
-                console.log('cart item id : ' + output.data.itemId);
                 jQuery("#messages").text(output.data.success);
 
                 if (jQuery("#" + output.data.itemId).length == 0) {

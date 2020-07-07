@@ -33,7 +33,6 @@
             <h1 class="counter-<?php echo $post_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
             <button class="more" id="<?php echo $post_id; ?>"><h1> + </h1></button>
           </div>
-          <h1 style="padding: 8px"><?php echo $cart_item_id; ?></h1>
         </div>
   <?php }
     }

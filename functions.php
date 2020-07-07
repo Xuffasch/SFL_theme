@@ -58,28 +58,13 @@ add_action("wp_ajax_remove_one_quantity", "remove_one");
 add_action("wp_ajax_nopriv_remove_one_quantity", "remove_one");
 
 function remove_one() {
-  $product_id = $_REQUEST["cart_item_id"];
+  WC()->cart->set_quantity( $_REQUEST["cart_item_id"], $_REQUEST["new_quantity"] );
 
-  $newQty = 0;
-  $items = WC()->cart->get_cart();
-  foreach($items as $item => $values) {
-    $newQty = $values["quantity"];
-  }
-
-  if ( $newQty > 0 ) {
-    $cart->add_to_cart($product_id, -1);
-    $items = WC()->cart->get_cart_items();
-    foreach($items as $item => $values) {
-      $newQty = $values["quantity"];
-    }
+  $cart_item = WC()->cart->get_cart_item($_REQUEST["cart_item_id"]);
+  $newQty = $cart_item["quantity"];
   
-    $ok = array( 'success' => "Decrease quantity is done", 'newQty' => $newQty);
-  
-    $ko = array( 'failure' => "Decrease quantity did not work", 'oldQty' => 4);
-  
-    wp_send_json_success($ok);
-    wp_send_json_error($ko);
-  } 
+  $ok = array( 'success' => "Decrease quantity is done", 'itemId' => $_REQUEST["cart_item_id"], 'newQty' => $newQty);
+  wp_send_json_success($ok);
 
   wp_die();
 }
