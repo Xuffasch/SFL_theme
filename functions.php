@@ -29,25 +29,22 @@ add_action("wp_ajax_add_one_quantity", "add_one");
 add_action("wp_ajax_nopriv_add_one_quantity", "add_one");
 
 function add_one() {
-  $item_id = "";
   $cart_item_id = $_REQUEST["cart_item_id"];
   if ( $cart_item_id == "" ) {
-    $product_id = $_REQUEST["product_id"];
-    WC()->cart->add_to_cart($product_id, 1);
-    $items = WC()->cart->get_cart();
-    $item_keys = array_keys($items);
-    $item_id = end($item_keys);
+    WC()->cart->add_to_cart($_REQUEST["product_id"], 1);
+    $item_keys = array_keys(WC()->cart->get_cart());
+    $cart_item_id = end($item_keys);
   } else {
     WC()->cart->set_quantity( $cart_item_id, $_REQUEST["new_quantity"] );
-    $item_id = $cart_item_id;
   }
 
-  $cart_item = WC()->cart->get_cart_item($item_id);
+  $cart_item = WC()->cart->get_cart_item($cart_item_id);
   $newQty = $cart_item["quantity"];
 
-  $ok = array( 'success' => "Add quantity is done", 'productId' => $_REQUEST["product_id"], 'itemId' => $item_id, 'newQty' => $newQty );
-
-  $ko = array( 'failure' => "Add quantity did not work");
+  $ok = array( 'success' => "Add quantity is done", 
+               'productId' => $_REQUEST["product_id"], 
+               'itemId' => $cart_item_id, 
+               'newQty' => $newQty );
 
   wp_send_json_success($ok);
 
@@ -63,7 +60,9 @@ function remove_one() {
   $cart_item = WC()->cart->get_cart_item($_REQUEST["cart_item_id"]);
   $newQty = $cart_item["quantity"];
   
-  $ok = array( 'success' => "Decrease quantity is done", 'itemId' => $_REQUEST["cart_item_id"], 'newQty' => $newQty);
+  $ok = array( 'success' => "Decrease quantity is done", 
+               'itemId' => $_REQUEST["cart_item_id"], 
+               'newQty' => $newQty);
   wp_send_json_success($ok);
 
   wp_die();
