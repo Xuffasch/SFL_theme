@@ -4,8 +4,10 @@
       <div class="top-title">
         <h2>Tous nos produits de saison</h2>
       </div>
+      <div id="allproducts-messages">
+        <h1 id="messages">Faites votre panier</h1>
+      </div>
       <?php $args = array( 'post_type' => 'product' ); ?>
-      <!-- <--?php get_template_part("parts/products/10-products-grid") ?> -->
       <?php include( locate_template( "parts/products/10-products-grid.php", false, false ) ); ?>
     </div>
   </div>

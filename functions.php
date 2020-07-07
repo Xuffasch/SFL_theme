@@ -25,6 +25,65 @@ set_post_thumbnail_size(960, 720, true);
 add_image_size('medium', 720, 0, false);
 add_image_size('square', 480, 0, false);
 
+add_action("wp_ajax_add_one_quantity", "add_one");
+add_action("wp_ajax_nopriv_add_one_quantity", "add_one");
+
+function add_one() {
+  $item_id = "";
+  $cart_item_id = $_REQUEST["cart_item_id"];
+  if ( $cart_item_id == "" ) {
+    $product_id = $_REQUEST["product_id"];
+    WC()->cart->add_to_cart($product_id, 1);
+    $items = WC()->cart->get_cart();
+    $item_keys = array_keys($items);
+    $item_id = end($item_keys);
+  } else {
+    WC()->cart->set_quantity( $cart_item_id, $_REQUEST["new_quantity"] );
+    $item_id = $cart_item_id;
+  }
+
+  $cart_item = WC()->cart->get_cart_item($item_id);
+  $newQty = $cart_item["quantity"];
+
+  $ok = array( 'success' => "Add quantity is done", 'productId' => $_REQUEST["product_id"], 'itemId' => $item_id, 'newQty' => $newQty );
+
+  $ko = array( 'failure' => "Add quantity did not work");
+
+  wp_send_json_success($ok);
+
+  wp_die();
+}
+
+add_action("wp_ajax_remove_one_quantity", "remove_one");
+add_action("wp_ajax_nopriv_remove_one_quantity", "remove_one");
+
+function remove_one() {
+  $product_id = $_REQUEST["cart_item_id"];
+
+  $newQty = 0;
+  $items = WC()->cart->get_cart();
+  foreach($items as $item => $values) {
+    $newQty = $values["quantity"];
+  }
+
+  if ( $newQty > 0 ) {
+    $cart->add_to_cart($product_id, -1);
+    $items = WC()->cart->get_cart_items();
+    foreach($items as $item => $values) {
+      $newQty = $values["quantity"];
+    }
+  
+    $ok = array( 'success' => "Decrease quantity is done", 'newQty' => $newQty);
+  
+    $ko = array( 'failure' => "Decrease quantity did not work", 'oldQty' => 4);
+  
+    wp_send_json_success($ok);
+    wp_send_json_error($ko);
+  } 
+
+  wp_die();
+}
+
 /** Include style.css file to pages. The array could contain other css files style could depend on and should be downloaded before style.css */
 function sfl_scripts_and_styles() {
   $template_folder = get_template_directory_uri();
@@ -45,7 +104,10 @@ function sfl_scripts_and_styles() {
   if (is_tax() || is_post_type_archive( "product" )) {
     wp_enqueue_style( 'products-pages', $template_folder.'/css/products/10-products-grid.css', array('style') );
 
-    wp_enqueue_script( "quantifier", $template_folder."/js/products-quantifier.js" );
+    wp_enqueue_script( "quantifier", $template_folder."/js/products-quantifier.js", array("jquery"), '1.0', true );
+
+    // localize the script to your domain name, so that you can reference the url to admin-ajax.php file easily
+    wp_localize_script( "quantifier", 'ajaxurl', admin_url( 'admin-ajax.php' ));   
   }
 
   if ( is_account_page() ) {

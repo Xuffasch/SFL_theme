@@ -15,11 +15,25 @@
           ?>
           <img src="<?php echo $img_url[0]; ?>" alt="<?php echo $name; ?>">
           <h3 class="product-name"><?php echo $name; ?></h3>
-          <div class="quantifier">
-            <button class="less" id="<?php echo $slug ?>" onClick="Remove(event)"><h1> - </h1></button>
-            <h1 class="counter" id="counter-<?php echo $slug ?>">0</h1>
-            <button class="more" id="<?php echo $slug ?>" onClick="Add(event)"><h1> + </h1></button>
+          <h3 class="product-id"><?php echo $post_id; ?><h3>
+          <div class="quantifier" id="<?php echo $post_id; ?>">
+            <button class="less" id="<?php echo $post_id ?>"><h1> - </h1></button>
+            <?php 
+              $cart_item_id = "";
+              $product_qty = 0;
+              foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) : {
+                if ( $post_id == $cart_item["data"]->get_id() ) {
+                  $cart_item_id = $cart_item_key;
+                  $product_qty = $cart_item["quantity"];
+                  break;
+                } 
+              }
+            endforeach;
+            ?>
+            <h1 class="counter-<?php echo $post_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
+            <button class="more" id="<?php echo $post_id; ?>"><h1> + </h1></button>
           </div>
+          <h1 style="padding: 8px"><?php echo $cart_item_id; ?></h1>
         </div>
   <?php }
     }

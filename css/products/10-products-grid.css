@@ -3,6 +3,20 @@
     margin: 55px auto 0 auto;
 }
 
+.messages {
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages>h1 {
+    margin: auto;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, auto);
