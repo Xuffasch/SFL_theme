@@ -1,3 +1,8 @@
+<!-- This template is called by woocommerce shortcode [products] to display products. It should be placed in a woocommerce folder inside any theme to override the content-product.php template default template provided by the woocommerce plugin.
+
+Check https://docs.woocommerce.com/wc-apidocs/source-class-WC_Shortcode_Products.html for detail implementation of [products]
+-->
+
 <?php 
 global $product;
 
