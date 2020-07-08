@@ -14,6 +14,9 @@ if ( ! function_exists( 'sfl_setup' ) ) :
     add_theme_support( 'title-tag' );
     /** Add woocommerce functions. Without it woocom. Product custom post type is not recongnized and connected to template files */
     add_theme_support( 'woocommerce' );
+
+    /** Remove add to cart button to product archive grid */
+    remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
   }
 endif;
 add_action( 'after_setup_theme' , 'sfl_setup' );

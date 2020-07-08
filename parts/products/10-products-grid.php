@@ -15,7 +15,6 @@
           ?>
           <img src="<?php echo $img_url[0]; ?>" alt="<?php echo $name; ?>">
           <h3 class="product-name"><?php echo $name; ?></h3>
-          <h3 class="product-id"><?php echo $post_id; ?><h3>
           <div class="quantifier" id="<?php echo $post_id; ?>">
             <button class="less" id="<?php echo $post_id ?>"><h1> - </h1></button>
             <?php 
