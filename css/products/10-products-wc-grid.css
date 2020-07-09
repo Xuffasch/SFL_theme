@@ -1,0 +1,65 @@
+body {
+    background-color: #fff3e0;
+}
+
+.section-container {
+    width: 90%;
+    margin: 55px auto 0 auto;
+}
+
+.section-container .top-title {
+    padding: 20px;
+    font-weight: 600;
+}
+
+.section-container h1 {
+    font-size: 20px;
+}
+
+.product>.quantifier {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.quantifier button {
+    background-color: orange;
+    width: 10%;
+    height: auto;
+    text-align: center;
+}
+
+.messages {
+    padding: 20px;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.woocommerce.columns-2 {
+    margin-top: 12px;
+}
+
+.woocommerce ul.products {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+}
+
+.woocommerce ul.products::before {
+    display: none;
+}
+
+.woocommerce.columns-2 ul.products li.product {
+    margin: 8px auto;
+    width: 90%;
+}
+
+.woocommerce.columns-2 ul.products li.product a {
+    color: black;
+}
+
+.woocommerce.columns-2 ul.products li.product a:hover {
+    color: orange;
+}

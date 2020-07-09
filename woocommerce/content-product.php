@@ -23,7 +23,8 @@ if ( empty( $product ) || !$product->is_visible() ) {
     do_action( 'woocommerce_after_shop_loop_item' );
     $product_id = $product->get_id();
   ?>
-  <div class="quantifier" id="<?php echo $product_id; ?>">
+  <?php if ( !is_front_page() ) { ?>  
+    <div class="quantifier" id="<?php echo $product_id; ?>">
     <button class="less" id="<?php echo $product_id; ?>"><h1> - </h1></button>
     <?php 
         $cart_item_id = "";
@@ -40,4 +41,5 @@ if ( empty( $product ) || !$product->is_visible() ) {
     <h1 class="counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
     <button class="more" id="<?php echo $product_id; ?>"><h1> + </h1></button>
   </div>
+  <?php } ?>
 </li>

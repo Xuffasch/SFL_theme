@@ -315,6 +315,7 @@
 (orientation: landscape) {
     #btn-order {
         display: block;
+        padding: 10px;
     }
 }
 

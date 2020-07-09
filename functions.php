@@ -89,11 +89,11 @@ function sfl_scripts_and_styles() {
   }
 
   if (is_tax() || is_post_type_archive( "product" )) {
-    wp_enqueue_style( 'products-pages', $template_folder.'/css/products/10-products-grid.css', array('style') );
+    wp_enqueue_style( 'products-pages', $template_folder.'/css/products/10-products-wc-grid.css', array('style') );
 
     wp_enqueue_script( "quantifier", $template_folder."/js/products-quantifier.js", array("jquery"), '1.0', true );
 
-    // localize the script to your domain name, so that you can reference the url to admin-ajax.php file easily
+    // Declare the variable ajaxurl to be called in products-quantifier.js to retrieve the url to send the ajax request
     wp_localize_script( "quantifier", 'ajaxurl', admin_url( 'admin-ajax.php' ));   
   }
 
