@@ -25,8 +25,8 @@ if ( empty( $product ) || !$product->is_visible() ) {
   ?>
   <?php if ( !is_front_page() ) { ?>  
     <div class="quantifier" id="<?php echo $product_id; ?>">
-    <button class="less" id="<?php echo $product_id; ?>"><h1> - </h1></button>
-    <?php 
+      <button class="grid-item less" id="<?php echo $product_id; ?>"> - </button>
+      <?php 
         $cart_item_id = "";
         $product_qty = 0;
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) : {
@@ -37,9 +37,9 @@ if ( empty( $product ) || !$product->is_visible() ) {
           } 
         }
         endforeach;
-    ?>
-    <h1 class="counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
-    <button class="more" id="<?php echo $product_id; ?>"><h1> + </h1></button>
-  </div>
+      ?>
+      <h1 class="grid-item counter counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
+      <button class="grid-item more" id="<?php echo $product_id; ?>"> + </button>
+    </div>
   <?php } ?>
 </li>

@@ -95,6 +95,8 @@ function sfl_scripts_and_styles() {
 
     // Declare the variable ajaxurl to be called in products-quantifier.js to retrieve the url to send the ajax request
     wp_localize_script( "quantifier", 'ajaxurl', admin_url( 'admin-ajax.php' ));   
+
+    wp_enqueue_script( "search", $template_folder."/js/search.js", array("jquery"));
   }
 
   if ( is_account_page() ) {
