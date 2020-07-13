@@ -97,6 +97,8 @@ function sfl_scripts_and_styles() {
     wp_localize_script( "quantifier", 'ajaxurl', admin_url( 'admin-ajax.php' ));   
 
     wp_enqueue_script( "search", $template_folder."/js/search.js", array("jquery"));
+
+    wp_localize_script( "search", 'template_url', $template_folder, array("jquery"));
   }
 
   if ( is_account_page() ) {
