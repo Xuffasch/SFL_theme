@@ -14,13 +14,15 @@ function productSearch(query, load, results, currentQuery, timeout) {
         if (query != currentQuery) {
             timeout = setTimeout(function() {
                 jQuery.ajax({
+                    url: options.ajaxurl,
                     type: 'post',
                     data: { action: "search_product", keyword: query },
                     success: function(data) {
                         currentQuery = query;
                         load.addClass("invisible");
                         if (!results.hasClass('empty')) {
-                            if (data.legnth) {
+                            console.log('data : ' + data)
+                            if (data.length) {
                                 results.html('<ul>' + data + '</ul>');
                             } else {
                                 results.html('<div id="no-product">Aucun produit avec ces mots clefs.</div>');
@@ -57,10 +59,10 @@ jQuery(document).ready(function() {
         searchbtn.toggleClass('searching');
         if (searchbtn.hasClass('searching')) {
             messagesbox.css("background-color", "transparent");
-            searchbtn.css("background-image", "url(" + template_url + "/images/search-activated.svg" + ")");
+            searchbtn.css("background-image", "url(" + options.template_url + "/images/search-activated.svg" + ")");
         } else {
             messagesbox.css("background-color", "black");
-            searchbtn.css("background-image", "url(" + template_url + "/images/search.svg" + ")");
+            searchbtn.css("background-image", "url(" + options.template_url + "/images/search.svg" + ")");
         }
 
         let currentlist = jQuery('div.woocommerce,.columns-2');

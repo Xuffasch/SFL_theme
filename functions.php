@@ -98,7 +98,14 @@ function sfl_scripts_and_styles() {
 
     wp_enqueue_script( "search", $template_folder."/js/search.js", array("jquery"));
 
-    wp_localize_script( "search", 'template_url', $template_folder, array("jquery"));
+    wp_localize_script( 
+      "search", 
+      "options", 
+      array( 
+        'template_url' => $template_folder,
+        'ajaxurl' => admin_url('admin-ajax.php')
+     ),
+      array("jquery"));
   }
 
   if ( is_account_page() ) {
@@ -118,3 +125,4 @@ require_once( get_template_directory().'/inc/menus.php' );
 /** Declare sidebars names */
 require_once( get_template_directory().'/inc/sidebars.php' );
 
+require_once( get_template_directory().'/functions/product-search.php');
