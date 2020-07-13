@@ -130,17 +130,6 @@ input[type="search"]:focus {
     font-weight: bold;
 }
 
-
-/* #messages {
-    margin: 4px;
-}
-
-@media (min-width: 400px) {
-    #messages {
-        margin: 0;
-    }
-} */
-
 #messages.invisible {
     display: none;
 }
@@ -148,8 +137,13 @@ input[type="search"]:focus {
 #search-box {
     background-color: black;
     color: white;
-    /* font-weight: bold; */
     display: block;
+}
+
+#search-box svg {
+    background-color: #fff3e0;
+    margin: 0;
+    padding: 0;
 }
 
 #search-box.invisible {
@@ -165,6 +159,10 @@ input[type="search"]:focus {
 
 .woocommerce.columns-2 {
     margin-top: 12px;
+}
+
+.woocommerce.columns-2.invisible {
+    display: none;
 }
 
 .woocommerce ul.products {
@@ -190,13 +188,54 @@ input[type="search"]:focus {
     color: orange;
 }
 
+.search-result {
+    display: block;
+}
+
+.search-result.invisible {
+    display: none;
+}
+
+#loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 160px;
+}
+
+#loading.invisible {
+    visibility: hidden;
+}
+
+#Capa_1 {
+    width: 36px;
+    height: 36px;
+    animation: loading 1.2s 0ms infinite normal linear;
+    transform-origin: center;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#no-product {
+    font-size: 20px;
+    text-align: center;
+}
+
 
 /* Search list  */
 
 .search-list {
-    display: none;
+    display: block;
 }
 
 .search-list.invisible {
-    display: block;
+    display: none;
 }

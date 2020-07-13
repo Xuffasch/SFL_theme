@@ -20,7 +20,17 @@
           <?php get_search_form(); ?>
         </div> 
       </div>
-      <?php echo do_shortcode('[products limit="7" columns="2" paginate="true"]'); ?>
+      <div class="results">
+        <?php echo do_shortcode('[products limit="7" columns="2" paginate="true"]'); ?>
+        <div id="search-result" class="invisible">
+          <div id="loading" class="invisible">
+            <?php echo file_get_contents( get_template_directory()."/images/refresh.svg"); ?>
+            <h1>Recherche parmi les produits...</h1>
+          </div>
+          <div id="search-list">
+          </div>
+        </div>
+      </div>
     </div>
 
 <?php get_footer(); ?>
