@@ -81,7 +81,6 @@ jQuery(document).ready(function() {
             timeout = false;
 
         search.on("search", function() {
-            console.log("search change is called");
             if (jQuery(this).val() == "") {
                 results.empty();
             }
@@ -92,7 +91,6 @@ jQuery(document).ready(function() {
                 results.empty();
             }
 
-            console.log('search keyup is called');
             var query = jQuery(this).val();
             productSearch(query, load, results, currentQuery, timeout);
         })
