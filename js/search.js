@@ -1,48 +1,31 @@
-function productSearch(query, load, results, currentQuery, timeout) {
-    console.log("productSearch is called");
+let searchInProgress = false;
+let currentQuery = "";
 
-    query = query.trim();
-    if (query.length >= 3) {
+function search_product(query, load, results) {
+    results.empty().removeClass('empty');
+    load.removeClass("invisible");
 
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-
-        results.empty().removeClass('empty');
-        load.removeClass("invisible");
-
-        if (query != currentQuery) {
-            timeout = setTimeout(function() {
-                jQuery.ajax({
-                    url: options.ajaxurl,
-                    type: 'post',
-                    data: { action: "search_product", keyword: query },
-                    success: function(data) {
-                        currentQuery = query;
-                        load.addClass("invisible");
-                        if (!results.hasClass('empty')) {
-                            console.log('data : ' + data)
-                            if (data.length) {
-                                results.html('<ul>' + data + '</ul>');
-                            } else {
-                                results.html('<div id="no-product">Aucun produit avec ces mots clefs.</div>');
-                            }
-                        }
-                        clearTimeout(timeout);
-                        timeout = false;
+    searchInProgress = setTimeout(function() {
+        jQuery.ajax({
+            url: options.ajaxurl,
+            type: 'post',
+            data: { action: "search_product", keyword: query },
+            success: function(data) {
+                currentQuery = query;
+                load.addClass("invisible");
+                if (!results.hasClass('empty')) {
+                    console.log('data : ' + data)
+                    if (data.length) {
+                        results.html('<ul>' + data + '</ul>');
+                    } else {
+                        results.html('<div id="no-product">Aucun produit avec ces mots clefs.</div>');
                     }
-                })
-            }, 500);
-        }
-
-    } else {
-        load.addClass("invisible");
-        results.empty().removeClass("empty");
-
-        clearTimeout(timeout);
-        timeout = false;
-    }
-
+                }
+                clearTimeout(searchInProgress);
+                searchInProgress = false;
+            }
+        })
+    }, 100);
 }
 
 
@@ -76,9 +59,7 @@ jQuery(document).ready(function() {
         let form = jQuery(this),
             search = form.find('.search'),
             load = jQuery("#loading"),
-            results = jQuery('#search-list'),
-            currentQuery = '',
-            timeout = false;
+            results = jQuery('#search-list');
 
         search.on("search", function() {
             if (jQuery(this).val() == "") {
@@ -92,7 +73,15 @@ jQuery(document).ready(function() {
             }
 
             var query = jQuery(this).val();
-            productSearch(query, load, results, currentQuery, timeout);
+
+            if (searchInProgress) {
+                return;
+            } else {
+                if (query.trim().length >= 3) {
+                    search_product(query, load, results);
+                }
+            }
+
         })
     })
 });

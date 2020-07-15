@@ -1,43 +1,64 @@
 <?php
 function search_product() {
-  // $answer = random_int(0, 20);
-
-  // $phrase = $answer > 10 ? "Pas de produits contenant les mots clefs" : random_bytes(42);
-
-  // echo '<li>'.$phrase.'</li>';
-
   global $wpdb, $woocommerce;
 
   $keyword = $_POST['keyword'];
+  $sane_keyword = sanitize_text_field( $keyword );
+  echo "Sanitized word : ".sanitize_text_field($sane_keyword);
+  $output = "<li>Pas de produit avec le(s) mot(s)-clef : ".$sane_keyword.'</li>';
 
-  $queryStr = "SELECT DISTINCT $wpdb->posts.*
-  FROM $wpdb->posts, $wpdb->postmeta
-  WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id
-  AND $wpdb->posts.post_status = 'publish'
-  AND $wpdb->posts.post_type = 'product'
-  AND (
-    ($wpdb->posts.post_title LIKE '%{$keyword}%')
-    OR
-    ($wpdb->posts.post_content LIKE '%{$keyword}%')
-  )
-  ORDER BY $wpdb->posts.post_date DESC";
+  if ($sane_keyword != "") {
 
-  $queryResult = $wpdb->get_results($queryStr);
+    $queryStr = "SELECT DISTINCT $wpdb->posts.*
+    FROM $wpdb->posts
+    WHERE $wpdb->posts.post_status = 'publish'
+    AND $wpdb->posts.post_type = 'product'
+    AND (
+      $wpdb->posts.post_title LIKE '%{$sane_keyword}%'
+    )
+    ORDER BY $wpdb->posts.post_date DESC";
+
+    $queryResult = $wpdb->get_results($queryStr);
+
+    $queryStr2 = "SELECT DISTINCT $wpdb->posts.*
+    FROM $wpdb->posts
+    WHERE $wpdb->posts.post_title LIKE %s
+    AND $wpdb->posts.post_type = 'product'
+    AND $wpdb->posts.post_status = 'publish'
+    ORDER BY $wpdb->posts.post_date DESC";
+
+    $like = '%';
+    $like_str = $like.$wpdb->esc_like( $sane_keyword ).$like;
+
+    $queryResult2 = $wpdb->get_results( $wpdb->prepare(
+      $queryStr2,
+      $like_str
+    ));
   
-  $output = "<li>Pas de produit avec le(s) mot(s)-clef : ".$keyword.'</li>';
-  if ( !empty($queryResult) ) {
-    $output = '';
 
-    foreach ($queryResult as $result) {
-      $output .= '<li>';
-        $output .= '<div class="product-data">';
-          $output .= '<h3>'.$result->post_title.'</h3>';
-        $output .= '</div>';
-      $output .= '</li>';
+    if ( !empty($queryResult) ) {
+      $output = '';
+      foreach ($queryResult as $result) {
+        $output .= '<li>';
+          $output .= '<div class="product-image">';
+            $output .= '<img src="'.esc_url(get_the_post_thumbnail_url($result->ID, 'thumbnail')).'">';
+          $output .= '</div>';
+          $output .= '<div class="product-data">';
+            $output .= '<h3>'.$result->post_title.'</h3>';
+          $output .= '</div>';
+        $output .= '</li>';
+      }
     }
-  }
+  } 
 
-  echo $output;
+  $allowed = array (
+    'li' => array(),
+    'div' => array( 'class' => array() ),
+    // 'img' => array( 'src' => array() )
+  );
+  $cleared_output = wp_kses($output, $allowed);
+
+  echo $cleared_output;
 
   die();
 }
