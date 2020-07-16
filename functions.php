@@ -100,10 +100,11 @@ function sfl_scripts_and_styles() {
 
     wp_localize_script( 
       "search", 
-      "options", 
+      "compagnons", 
       array( 
         'template_url' => $template_folder,
-        'ajaxurl' => admin_url('admin-ajax.php')
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'whois' => wp_create_nonce( 'productsearch' )
      ),
       array("jquery"));
   }

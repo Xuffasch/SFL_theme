@@ -2,6 +2,8 @@
 function search_product() {
   global $wpdb, $woocommerce;
 
+  check_ajax_referer( "productsearch", 'search_nonce' );
+
   $keyword = $_POST['keyword'];
   $sane_keyword = sanitize_text_field( $keyword );
   echo "Sanitized word : ".sanitize_text_field($sane_keyword);

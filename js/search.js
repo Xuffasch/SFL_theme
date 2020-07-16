@@ -4,12 +4,17 @@ let currentQuery = "";
 function search_product(query, load, results) {
     results.empty().removeClass('empty');
     load.removeClass("invisible");
+    console.log("search nonce : " + compagnons.whois);
 
     searchInProgress = setTimeout(function() {
         jQuery.ajax({
-            url: options.ajaxurl,
+            url: compagnons.ajaxurl,
             type: 'post',
-            data: { action: "search_product", keyword: query },
+            data: {
+                action: "search_product",
+                keyword: query,
+                search_nonce: compagnons.whois
+            },
             success: function(data) {
                 currentQuery = query;
                 load.addClass("invisible");
@@ -42,10 +47,10 @@ jQuery(document).ready(function() {
         searchbtn.toggleClass('searching');
         if (searchbtn.hasClass('searching')) {
             messagesbox.css("background-color", "transparent");
-            searchbtn.css("background-image", "url(" + options.template_url + "/images/search-activated.svg" + ")");
+            searchbtn.css("background-image", "url(" + compagnons.template_url + "/images/search-activated.svg" + ")");
         } else {
             messagesbox.css("background-color", "black");
-            searchbtn.css("background-image", "url(" + options.template_url + "/images/search.svg" + ")");
+            searchbtn.css("background-image", "url(" + compagnons.template_url + "/images/search.svg" + ")");
         }
 
         let currentlist = jQuery('div.woocommerce,.columns-2');
