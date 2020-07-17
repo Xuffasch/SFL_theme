@@ -102,7 +102,10 @@ input[type="search"]:focus {
     }
 }
 
-.product>.quantifier {
+
+/* .product>.quantifier { */
+
+.quantifier {
     width: 80%;
     margin: 8px auto;
     display: grid;
