@@ -200,14 +200,6 @@ input[type="search"]:focus {
     color: orange;
 }
 
-.search-result {
-    display: block;
-}
-
-.search-result.invisible {
-    display: none;
-}
-
 #loading {
     display: flex;
     flex-direction: column;
@@ -217,7 +209,6 @@ input[type="search"]:focus {
 }
 
 #loading.invisible {
-    /* visibility: hidden; */
     display: none;
 }
 
@@ -244,27 +235,6 @@ input[type="search"]:focus {
 
 
 /* Search list  */
-
-
-/* 
-.search-list {
-    display: block;
-}
-
-.search-list.invisible {
-    display: none;
-} */
-
-
-/* Search result */
-
-
-/* #search-list {
-    margin: 8px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
 
 .search-list {
     margin: 8px auto;
