@@ -19,6 +19,18 @@ body {
     stroke-width: 4px;
 }
 
+.title.searching {
+    display: none;
+}
+
+.search-title {
+    display: none
+}
+
+.search-title.searching {
+    display: block;
+}
+
 input[type="search"] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -205,7 +217,8 @@ input[type="search"]:focus {
 }
 
 #loading.invisible {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
 }
 
 #Capa_1 {
@@ -238,4 +251,32 @@ input[type="search"]:focus {
 
 .search-list.invisible {
     display: none;
+}
+
+
+/* Search result */
+
+#search-list {
+    margin: 8px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(8, auto);
+    column-gap: 12px;
+    row-gap: 8px;
+}
+
+
+/* Search item */
+
+.search-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
 }

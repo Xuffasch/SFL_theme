@@ -9,6 +9,9 @@
             echo $start_message; 
           ?>
           </h1>
+          <h1 class="search-title">
+            Recherche Produit
+          </h1>
         </div>
         <button class="grid-item search" id="btn-search"></button>
       </div>

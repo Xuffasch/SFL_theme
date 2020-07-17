@@ -21,11 +21,14 @@ function search_product(query, load, results) {
                 if (!results.hasClass('empty')) {
                     console.log('data : ' + data)
                     if (data.length) {
-                        results.html('<ul>' + data + '</ul>');
+                        results.html('<ul class="search-results">' + data + '</ul>');
                     } else {
                         results.html('<div id="no-product">Aucun produit avec ces mots clefs.</div>');
                     }
                 }
+                jQuery(".more").click(addQuantity);
+                jQuery(".less").click(removeQuantity);
+
                 clearTimeout(searchInProgress);
                 searchInProgress = false;
             }
@@ -41,8 +44,14 @@ jQuery(document).ready(function() {
         let searchbox = jQuery('#search-box');
         let searchbtn = jQuery('#btn-search');
 
+        let title = jQuery('.title');
+        let searchtitle = jQuery('.search-title');
+
         messages.toggleClass('invisible');
         searchbox.toggleClass('invisible');
+
+        title.toggleClass('searching');
+        searchtitle.toggleClass('searching');
 
         searchbtn.toggleClass('searching');
         if (searchbtn.hasClass('searching')) {

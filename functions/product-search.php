@@ -6,22 +6,9 @@ function search_product() {
 
   $keyword = $_POST['keyword'];
   $sane_keyword = sanitize_text_field( $keyword );
-  echo "Sanitized word : ".sanitize_text_field($sane_keyword);
-  $output = "<li>Pas de produit avec le(s) mot(s)-clef : ".$sane_keyword.'</li>';
 
+  $output = '<li>Pas de produit trouvé avec le(s) mot(s)-clef utilisé(s)</li>';
   if ($sane_keyword != "") {
-
-    $queryStr = "SELECT DISTINCT $wpdb->posts.*
-    FROM $wpdb->posts
-    WHERE $wpdb->posts.post_status = 'publish'
-    AND $wpdb->posts.post_type = 'product'
-    AND (
-      $wpdb->posts.post_title LIKE '%{$sane_keyword}%'
-    )
-    ORDER BY $wpdb->posts.post_date DESC";
-
-    $queryResult = $wpdb->get_results($queryStr);
-
     $queryStr2 = "SELECT DISTINCT $wpdb->posts.*
     FROM $wpdb->posts
     WHERE $wpdb->posts.post_title LIKE %s
@@ -29,24 +16,42 @@ function search_product() {
     AND $wpdb->posts.post_status = 'publish'
     ORDER BY $wpdb->posts.post_date DESC";
 
-    $like = '%';
-    $like_str = $like.$wpdb->esc_like( $sane_keyword ).$like;
+    $like_str = '%'.$wpdb->esc_like( $sane_keyword ).'%';
 
     $queryResult2 = $wpdb->get_results( $wpdb->prepare(
       $queryStr2,
       $like_str
     ));
-  
 
-    if ( !empty($queryResult) ) {
+    if ( !empty($queryResult2) ) {
       $output = '';
-      foreach ($queryResult as $result) {
-        $output .= '<li>';
+      foreach ($queryResult2 as $result) {
+        $price = get_post_meta($result->ID, '_regular_price');
+
+        $output .= '<li class="search-item">';
           $output .= '<div class="product-image">';
-            $output .= '<img src="'.esc_url(get_the_post_thumbnail_url($result->ID, 'thumbnail')).'">';
+            $output .= '<img src="'.esc_url(get_the_post_thumbnail_url($result->ID, 'smallSquareOne')).'">';
           $output .= '</div>';
           $output .= '<div class="product-data">';
-            $output .= '<h3>'.$result->post_title.'</h3>';
+            $output .= '<h2>'.$result->post_title.'</h3>';
+          $output .= '</div>';
+          $output .= '<div class="product-price">';
+            $output .= '<h3>'.$price.'</h3>';
+          $output .= '</div>'; 
+          $output .= '<div class="quantifier" id="'.$result->ID.'">';
+            $output .= '<button class="grid-item less" id="'.$result->ID.'">'.' - '.'</button>';
+            $cart_item_id = "";
+            $product_qty = 0;
+            foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) : {
+              if ( $result->ID == $cart_item["data"]->get_id() ) {
+                $cart_item_id = $cart_item_key;
+                $product_qty = $cart_item["quantity"];
+              break;
+              }
+            }
+            endforeach;
+            $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
+            $output .= '<button class="grid-item more" id="'.$result->ID.'">'.' + '.'</button>';
           $output .= '</div>';
         $output .= '</li>';
       }
@@ -54,9 +59,11 @@ function search_product() {
   } 
 
   $allowed = array (
-    'li' => array(),
+    'li' => array( 'class' => array() ),
     'div' => array( 'class' => array() ),
-    // 'img' => array( 'src' => array() )
+    'img' => array( 'src' => array(), 'class' => array() ),
+    'button' => array( 'class' => array(), 'id' => array() ),
+    'h1' => array( 'class' => array(), 'id' => array() )
   );
   $cleared_output = wp_kses($output, $allowed);
 
