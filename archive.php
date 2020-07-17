@@ -25,7 +25,7 @@
       </div>
       <div class="results">
         <?php echo do_shortcode('[products limit="7" columns="2" paginate="true"]'); ?>
-        <div id="search-result" class="invisible">
+        <div class="results-search invisible">
           <div id="loading" class="invisible">
             <?php echo file_get_contents( get_template_directory()."/images/refresh.svg"); ?>
             <h1>Recherche parmi les produits...</h1>

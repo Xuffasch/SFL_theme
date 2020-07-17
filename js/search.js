@@ -65,7 +65,7 @@ jQuery(document).ready(function() {
         let currentlist = jQuery('div.woocommerce,.columns-2');
         currentlist.toggleClass('invisible');
 
-        let searchResult = jQuery('#search-result');
+        let searchResult = jQuery('.results-search');
         searchResult.toggleClass('invisible');
     })
 
