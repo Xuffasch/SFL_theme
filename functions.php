@@ -27,6 +27,7 @@ set_post_thumbnail_size(960, 720, true);
 /** Define other named sizes for thumbnail image */
 add_image_size('medium', 720, 0, false);
 add_image_size('square', 480, 0, false);
+add_image_size('smallSquareOne', 240, 0, false);
 
 add_action("wp_ajax_add_one_quantity", "add_one");
 add_action("wp_ajax_nopriv_add_one_quantity", "add_one");
