@@ -73,7 +73,7 @@ jQuery(document).ready(function() {
         let form = jQuery(this),
             search = form.find('.search'),
             load = jQuery("#loading"),
-            results = jQuery('#search-list');
+            results = jQuery('.search-list');
 
         search.on("search", function() {
             if (jQuery(this).val() == "") {

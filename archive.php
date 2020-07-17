@@ -30,7 +30,7 @@
             <?php echo file_get_contents( get_template_directory()."/images/refresh.svg"); ?>
             <h1>Recherche parmi les produits...</h1>
           </div>
-          <div id="search-list">
+          <div class="search-list">
           </div>
         </div>
       </div>

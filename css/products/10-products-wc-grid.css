@@ -245,18 +245,28 @@ input[type="search"]:focus {
 
 /* Search list  */
 
+
+/* 
 .search-list {
     display: block;
 }
 
 .search-list.invisible {
     display: none;
-}
+} */
 
 
 /* Search result */
 
-#search-list {
+
+/* #search-list {
+    margin: 8px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.search-list {
     margin: 8px auto;
     display: flex;
     flex-direction: column;
