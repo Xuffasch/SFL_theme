@@ -41,7 +41,6 @@ if ( empty( $product ) || !$product->is_visible() ) {
         endforeach;
       ?>
       <div class="grid-item counter">
-        <!-- <h1 class="counter-<--?php echo $product_id; ?>" id="<--?php echo $cart_item_id; ?>"><--?php echo $product_qty; ?></h1> -->
         <input type="number" name="counter" class="counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>" value="0" min="0">
       </div>
       <button class="grid-item more" id="<?php echo $product_id; ?>">
