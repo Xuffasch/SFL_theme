@@ -25,7 +25,9 @@ if ( empty( $product ) || !$product->is_visible() ) {
   ?>
   <?php if ( !is_front_page() ) { ?>  
     <div class="quantifier" id="<?php echo $product_id; ?>">
-      <button class="grid-item less" id="<?php echo $product_id; ?>"> - </button>
+      <button class="grid-item less" id="<?php echo $product_id; ?>">
+        <?php echo file_get_contents( get_template_directory()."/images/less.svg"); ?>
+      </button>
       <?php 
         $cart_item_id = "";
         $product_qty = 0;
@@ -38,8 +40,13 @@ if ( empty( $product ) || !$product->is_visible() ) {
         }
         endforeach;
       ?>
-      <h1 class="grid-item counter counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>"><?php echo $product_qty; ?></h1>
-      <button class="grid-item more" id="<?php echo $product_id; ?>"> + </button>
+      <div class="grid-item counter">
+        <!-- <h1 class="counter-<--?php echo $product_id; ?>" id="<--?php echo $cart_item_id; ?>"><--?php echo $product_qty; ?></h1> -->
+        <input type="number" name="counter" class="counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>" value="0" min="0">
+      </div>
+      <button class="grid-item more" id="<?php echo $product_id; ?>">
+        <?php echo file_get_contents( get_template_directory()."/images/plus.svg"); ?> 
+      </button>
     </div>
   <?php } ?>
 </li>
