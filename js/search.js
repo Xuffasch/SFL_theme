@@ -15,18 +15,21 @@ function search_product(query, load, results) {
                 keyword: query,
                 search_nonce: compagnons.whois
             },
-            success: function(data) {
+            success: function(output) {
                 currentQuery = query;
                 load.addClass("invisible");
                 if (!results.hasClass('empty')) {
-                    console.log('data : ' + data)
-                    if (data.length) {
-                        results.html('<ul class="search-results">' + data + '</ul>');
+                    console.log('data : ' + output.data)
+                    if (output.data.page) {
+                        results.html('<ul class="search-results">' + output.data.page + '</ul>');
                     } else {
                         results.html('<div id="no-product">Aucun produit avec ces mots clefs.</div>');
                     }
                 }
+                jQuery(".more").html(output.data.plus);
                 jQuery(".more").click(addQuantity);
+
+                jQuery(".less").html(output.data.less);
                 jQuery(".less").click(removeQuantity);
 
                 clearTimeout(searchInProgress);

@@ -30,16 +30,14 @@ function search_product() {
 
         $output .= '<li class="search-item">';
           $output .= '<div class="product-image">';
-            $output .= '<img src="'.esc_url(get_the_post_thumbnail_url($result->ID, 'smallSquareOne')).'">';
-          $output .= '</div>';
+            $output .= '<img src="'.esc_url(get_the_post_thumbnail_url($result->ID, 'smallSquareOne')).'"></div>';
+
           $output .= '<div class="product-data">';
-            $output .= '<h2>'.$result->post_title.'</h3>';
-          $output .= '</div>';
+            $output .= '<h2>'.$result->post_title.'</h2></div>';
           $output .= '<div class="product-price">';
-            $output .= '<h3>'.$price.'</h3>';
-          $output .= '</div>'; 
+            $output .= '<h3>'.$price[0].'</h3></div>'; 
           $output .= '<div class="quantifier" id="'.$result->ID.'">';
-            $output .= '<button class="grid-item less" id="'.$result->ID.'">'.' - '.'</button>';
+            $output .= '<button class="grid-item less" id="'.$result->ID.'"></button>';
             $cart_item_id = "";
             $product_qty = 0;
             foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) : {
@@ -51,7 +49,7 @@ function search_product() {
             }
             endforeach;
             $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
-            $output .= '<button class="grid-item more" id="'.$result->ID.'">'.' + '.'</button>';
+            $output .= '<button class="grid-item more" id="'.$result->ID.'"></button>';
           $output .= '</div>';
         $output .= '</li>';
       }
@@ -67,9 +65,13 @@ function search_product() {
   );
   $cleared_output = wp_kses($output, $allowed);
 
-  echo $cleared_output;
+  $ok = array( 'page' => $cleared_output,
+               'plus' => file_get_contents(get_template_directory()."/images/plus.svg"),
+               'less' => file_get_contents(get_template_directory()."/images/less.svg"));
+  
+  wp_send_json_success($ok);
 
-  die();
+  wp_die();
 }
 
 add_action( "wp_ajax_search_product", 'search_product' );
