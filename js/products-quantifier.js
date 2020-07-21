@@ -31,6 +31,9 @@ let addQuantity = function() {
 
             if (jQuery("#" + output.data.itemId).length == 0) {
                 jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
+            }
+
+            if (jQuery(".counter-" + output.data.productId + ".result-item")[0]) {
                 jQuery(".counter-" + output.data.productId + ".result-item")[0].id = output.data.itemId;
             }
 
@@ -98,18 +101,67 @@ let updateQuantity = function() {
     console.log("updateQuantity is called");
 
     let updatedfield = jQuery(this);
+    console.log("cart item id : " + updatedfield[0].id);
+    let parentElement = updatedfield.parent();
+
+    let productId = parentElement[0].id;
+    console.log("product_id : " + productId);
 
     let storedValue = updatedfield[0].defaultValue;
-    console.log("stored Value : " + storedValue);
+    // console.log("stored Value : " + storedValue);
 
     let enteredValue = jQuery(this).val().trim();
-    console.log("entered value : " + enteredValue);
+    // console.log("entered value : " + enteredValue);
 
     let signed = parseInt(enteredValue);
     console.log("sign : " + signed);
 
     if (enteredValue != "" && !Number.isNaN(signed) && signed >= 0) {
         jQuery(this).attr("value", signed);
+
+        jQuery.ajax({
+            type: "POST",
+            url: ajaxurl,
+            data: {
+                action: "update_quantity",
+                product_id: productId,
+                cart_item_id: updatedfield[0].id,
+                new_quantity: signed,
+            },
+            success: function(output) {
+                console.log('success : ' + output.data.success);
+                console.log('productId : ' + output.data.productId);
+                console.log('cart item id : ' + output.data.itemId);
+                console.log('new quantity : ' + output.data.newQty);
+
+                jQuery("#messages").text(output.data.success);
+
+                // if (jQuery("#" + output.data.itemId).length == 0) {
+                //     jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
+                //     jQuery(".counter-" + output.data.productId + ".result-item")[0].id = output.data.itemId;
+                // }
+
+                if (jQuery("#" + output.data.itemId).length == 0) {
+                    jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
+                }
+
+                if (jQuery(".counter-" + output.data.productId + ".result-item")[0]) {
+                    jQuery(".counter-" + output.data.productId + ".result-item")[0].id = output.data.itemId;
+                }
+
+                let listItem = jQuery("#" + output.data.itemId);
+                let resultItem = jQuery("#" + output.data.itemId + ".result-item");
+
+                listItem.attr("value", output.data.newQty);
+                resultItem.attr("value", output.data.newQty);
+            },
+            error: function() {
+                console.log("Problème server");
+                jQuery("#messages").text("Modification non prise en compte - problème connexion server");
+            }
+        })
+
+
     } else {
         jQuery(this).attr("value", storedValue);
     }

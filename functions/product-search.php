@@ -50,7 +50,7 @@ function search_product() {
             endforeach;
             // $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
             
-            $output .= '<div class="grid-item counter">';
+            $output .= '<div class="grid-item counter" id="'.$result->ID.'">';
               $output .= '<input type="number" name="counter" class="counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'" value="'.$product_qty.'" min="0">';
             $output .= '</div>';
             
@@ -63,7 +63,7 @@ function search_product() {
 
   $allowed = array (
     'li' => array( 'class' => array() ),
-    'div' => array( 'class' => array() ),
+    'div' => array( 'class' => array(), 'id' => array() ),
     'img' => array( 'src' => array(), 'class' => array() ),
     'button' => array( 'class' => array(), 'id' => array() ),
     'h1' => array( 'class' => array(), 'id' => array() ),

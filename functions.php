@@ -128,3 +128,5 @@ require_once( get_template_directory().'/inc/menus.php' );
 require_once( get_template_directory().'/inc/sidebars.php' );
 
 require_once( get_template_directory().'/functions/product-search.php');
+
+require_once( get_template_directory().'/functions/update-cart.php');
