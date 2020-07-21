@@ -54,14 +54,13 @@ let removeQuantity = function() {
     console.log("removeQuantity is called for item for" + this.id);
     let counter = jQuery('.counter-' + this.id)[0];
 
-    if (counter.innerText == "0") {
+    if (counter.value == "0") {
         jQuery("#messages").text("Please add a quantity first");
         return;
     }
 
-    let counterId = jQuery('.counter-' + this.id)[0].id;
-    let counterNumber = counter.value;
-    let newQuantity = parseInt(counterNumber) - 1;
+    let counterId = counter.id;
+    let newQuantity = parseInt(counter.value) - 1;
 
     console.log("product_id : " + this.id);
     console.log("counterId : " + counterId);
