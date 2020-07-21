@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
     jQuery(".more").click(addQuantity);
     jQuery(".less").click(removeQuantity);
+    jQuery("input.counter").change(updateQuantity);
 })
 
 let addQuantity = function() {
@@ -9,7 +10,7 @@ let addQuantity = function() {
     let counterId = jQuery('.counter-' + this.id)[0].id;
 
     let counter = jQuery('.counter-' + this.id)[0];
-    let counterNumber = counter.innerText;
+    let counterNumber = counter.value;
     let newQuantity = parseInt(counterNumber) + 1;
 
     console.log("product_id : " + this.id);
@@ -29,11 +30,15 @@ let addQuantity = function() {
             jQuery("#messages").text(output.data.success);
 
             if (jQuery("#" + output.data.itemId).length == 0) {
-                jQuery(".counter-" + output.data.productId).attr("id", output.data.itemId);
+                jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
+                jQuery(".counter-" + output.data.productId + ".result-item")[0].id = output.data.itemId;
             }
-            jQuery("#" + output.data.itemId).text(output.data.newQty);
 
-            jQuery("#" + output.data.itemId + ".result-item").text(output.data.newQty)
+            let listItem = jQuery("#" + output.data.itemId);
+            let resultItem = jQuery("#" + output.data.itemId + ".result-item");
+
+            listItem.attr("value", output.data.newQty);
+            resultItem.attr("value", output.data.newQty);
         },
         error: function(output) {
             console.log("problème server")
@@ -52,7 +57,7 @@ let removeQuantity = function() {
     }
 
     let counterId = jQuery('.counter-' + this.id)[0].id;
-    let counterNumber = counter.innerText;
+    let counterNumber = counter.value;
     let newQuantity = parseInt(counterNumber) - 1;
 
     console.log("product_id : " + this.id);
@@ -74,8 +79,8 @@ let removeQuantity = function() {
             let listItem = jQuery("#" + output.data.itemId);
             let resultItem = jQuery("#" + output.data.itemId + ".result-item");
 
-            listItem.text(output.data.newQty);
-            resultItem.text(output.data.newQty);
+            listItem.attr("value", output.data.newQty);
+            resultItem.attr("value", output.data.newQty);
 
             if (output.data.newQty == 0) {
                 listItem.removeAttr("id");
@@ -87,4 +92,26 @@ let removeQuantity = function() {
             jQuery("#messages").text("Modification non prise en compte - problème connexion server");
         }
     });
+}
+
+let updateQuantity = function() {
+    console.log("updateQuantity is called");
+
+    let updatedfield = jQuery(this);
+
+    let storedValue = updatedfield[0].defaultValue;
+    console.log("stored Value : " + storedValue);
+
+    let enteredValue = jQuery(this).val().trim();
+    console.log("entered value : " + enteredValue);
+
+    let signed = parseInt(enteredValue);
+    console.log("sign : " + signed);
+
+    if (enteredValue != "" && !Number.isNaN(signed) && signed >= 0) {
+        jQuery(this).attr("value", signed);
+    } else {
+        jQuery(this).attr("value", storedValue);
+    }
+
 }

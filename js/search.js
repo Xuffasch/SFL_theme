@@ -32,6 +32,8 @@ function search_product(query, load, results) {
                 jQuery(".less").html(output.data.less);
                 jQuery(".less").click(removeQuantity);
 
+                jQuery(".counter.result-item").change(updateQuantity);
+
                 clearTimeout(searchInProgress);
                 searchInProgress = false;
             }

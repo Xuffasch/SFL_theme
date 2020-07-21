@@ -41,7 +41,7 @@ if ( empty( $product ) || !$product->is_visible() ) {
         endforeach;
       ?>
       <div class="grid-item counter">
-        <input type="number" name="counter" class="counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>" value="0" min="0">
+        <input type="number" name="counter" class="counter counter-<?php echo $product_id; ?>" id="<?php echo $cart_item_id; ?>" value=<?php echo $product_qty ?> min="0">
       </div>
       <button class="grid-item more" id="<?php echo $product_id; ?>">
         <?php echo file_get_contents( get_template_directory()."/images/plus.svg"); ?> 

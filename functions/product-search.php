@@ -48,7 +48,12 @@ function search_product() {
               }
             }
             endforeach;
-            $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
+            // $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
+            
+            $output .= '<div class="grid-item counter">';
+              $output .= '<input type="number" name="counter" class="counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'" value="'.$product_qty.'" min="0">';
+            $output .= '</div>';
+            
             $output .= '<button class="grid-item more" id="'.$result->ID.'"></button>';
           $output .= '</div>';
         $output .= '</li>';
@@ -61,7 +66,8 @@ function search_product() {
     'div' => array( 'class' => array() ),
     'img' => array( 'src' => array(), 'class' => array() ),
     'button' => array( 'class' => array(), 'id' => array() ),
-    'h1' => array( 'class' => array(), 'id' => array() )
+    'h1' => array( 'class' => array(), 'id' => array() ),
+    'input' => array( 'type' => 'number', 'name' => array(), 'class' => array(), 'id' => array(), 'value' => array(), 'min' => array() )
   );
   $cleared_output = wp_kses($output, $allowed);
 
