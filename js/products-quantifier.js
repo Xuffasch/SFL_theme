@@ -76,7 +76,7 @@ let removeQuantity = function() {
             new_quantity: newQuantity
         },
         success: function(output) {
-            jQuery("#messages").text("Quantité diminuée");
+            jQuery("#messages").text(output.data.success);
 
             let listItem = jQuery("#" + output.data.itemId);
             let resultItem = jQuery("#" + output.data.itemId + ".result-item");
