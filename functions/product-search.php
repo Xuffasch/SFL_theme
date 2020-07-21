@@ -48,7 +48,6 @@ function search_product() {
               }
             }
             endforeach;
-            // $output .= '<h1 class="grid-item counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'">'.$product_qty.'</h1>';
             
             $output .= '<div class="grid-item counter" id="'.$result->ID.'">';
               $output .= '<input type="number" name="counter" class="counter counter-'.$result->ID.' result-item" id="'.$cart_item_id.'" value="'.$product_qty.'" min="0">';

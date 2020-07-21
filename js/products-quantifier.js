@@ -108,10 +108,8 @@ let updateQuantity = function() {
     console.log("product_id : " + productId);
 
     let storedValue = updatedfield[0].defaultValue;
-    // console.log("stored Value : " + storedValue);
 
     let enteredValue = jQuery(this).val().trim();
-    // console.log("entered value : " + enteredValue);
 
     let signed = parseInt(enteredValue);
     console.log("sign : " + signed);
@@ -136,11 +134,6 @@ let updateQuantity = function() {
 
                 jQuery("#messages").text(output.data.success);
 
-                // if (jQuery("#" + output.data.itemId).length == 0) {
-                //     jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
-                //     jQuery(".counter-" + output.data.productId + ".result-item")[0].id = output.data.itemId;
-                // }
-
                 if (jQuery("#" + output.data.itemId).length == 0) {
                     jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
                 }
@@ -163,6 +156,7 @@ let updateQuantity = function() {
 
 
     } else {
+        console.log("Input not a number. No update on server")
         jQuery(this).attr("value", storedValue);
     }
 
