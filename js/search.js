@@ -59,13 +59,7 @@ jQuery(document).ready(function() {
         searchtitle.toggleClass('searching');
 
         searchbtn.toggleClass('searching');
-        if (searchbtn.hasClass('searching')) {
-            messagesbox.css("background-color", "transparent");
-            searchbtn.css("background-image", "url(" + compagnons.template_url + "/images/search-activated.svg" + ")");
-        } else {
-            messagesbox.css("background-color", "black");
-            searchbtn.css("background-image", "url(" + compagnons.template_url + "/images/search.svg" + ")");
-        }
+        messagesbox.toggleClass('searching');
 
         let currentlist = jQuery('div.woocommerce,.columns-2');
         currentlist.toggleClass('invisible');

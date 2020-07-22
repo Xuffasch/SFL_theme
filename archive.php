@@ -13,7 +13,9 @@
             Recherche Produit
           </h1>
         </div>
-        <button class="grid-item search" id="btn-search"></button>
+        <button class="grid-item search" id="btn-search">
+          <?php echo file_get_contents( get_template_directory()."/images/search.svg"); ?>
+        </button>
       </div>
       <div class="messages">
         <div id="messages">
