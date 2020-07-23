@@ -1,21 +1,37 @@
 let scrolling = false;
 
-window.onscroll = () => {
-    console.log("window is scrolling !");
-    scrolling = true;
-};
+jQuery(document).ready(windowAdjust);
+window.onresize = windowAdjust;
 
-setInterval(() => {
-    if (scrolling) {
-        scrolling = false;
+function windowAdjust() {
+    let nav = document.getElementById("navBar");
+    if (window.innerHeight < window.innerWidth) {
+        nav.classList.add("black-back");
+        window.onscroll = () => {
+            let alpha = Math.abs((window.scrollY)) / window.innerHeight;
 
-        let nav = document.getElementById("navBar");
-        let navH = nav.getBoundingClientRect()["height"];
-        let services = document.getElementById('services-logo');
+            nav.style.backgroundColor = "rgba(0, 0, 0, " + alpha + ")";
+        }
+    } else {
+        nav.classList.remove("black-back");
 
-        services.getBoundingClientRect().top < navH ?
-            services.classList.add("hide") :
-            services.classList.remove("hide");
+        window.onscroll = () => {
+            console.log("window is scrolling !");
+            scrolling = true;
+        };
 
+        setInterval(() => {
+            if (scrolling) {
+                scrolling = false;
+                let navH = nav.getBoundingClientRect()["height"];
+                let youtube = document.getElementById('headline-actions');
+
+                youtube.getBoundingClientRect().top < navH ?
+                    youtube.classList.add("hide") :
+                    youtube.classList.remove("hide");
+
+
+            }
+        }, 500);
     }
-}, 500);
+}

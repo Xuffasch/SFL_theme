@@ -1,0 +1,232 @@
+/* settings to allow responsive Youtube video element */
+
+.headline {
+    background-image: linear-gradient(to bottom, #777, #8F8F8F, #BBB, white, #AAA), url("../images/screenshot.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+@media (orientation: landscape) and (max-height: 414px) {
+    .headline {
+        background-image: linear-gradient(to bottom, #AAA, white, #AAA), url("../images/screenshot.jpg");
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (orientation: landscape) {
+    .headline-centerer {
+        padding-top: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.headline-container {
+    margin: 0px auto 0px;
+    width: 90%;
+    padding-top: 55px;
+}
+
+@media (orientation: landscape) {
+    .headline-container {
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: auto auto auto 30%;
+        grid-template-rows: 20% 40% 20% 20%;
+    }
+}
+
+.headline-item.top-items {
+    display: flex;
+    align-items: center;
+    grid-column: 4 / 5;
+    grid-row: 2 / 5;
+}
+
+@media (orientation: landscape) {
+    .headline-item.top-items {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.headline-item.title {
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    color: #EEE;
+    font-size: 16px;
+    font-weight: 600;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+}
+
+@media (orientation: landscape) {
+    .headline-item.title {
+        font-size: 16px;
+    }
+}
+
+.headline-item.title h1 {
+    margin: 8px auto;
+}
+
+@media (orientation: portrait) and (min-width: 374px) {
+    .headline-item.title {
+        font-size: 20px;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 413px) {
+    .h-centerer {
+        margin-top: 12px;
+    }
+}
+
+.headline-item.order {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (orientation: portrait) and (min-width: 499px) {
+    .headline-item.order {
+        display: flex;
+    }
+}
+
+@media (orientation: landscape) {
+    .headline-item.order {
+        display: flex;
+    }
+}
+
+#btn-order {
+    margin: 8px 16px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(255, 232, 84);
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (orientation: portrait) and (min-width: 499px),
+(orientation: landscape) {
+    #btn-order {
+        display: block;
+        padding: 16px;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 768px) {
+    #btn-order {
+        padding: 20px;
+        font-size: 16px;
+    }
+}
+
+.headline-item.actions {
+    height: 55px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-column: 1 / 5;
+    grid-row: 4 / 5;
+}
+
+@media (orientation: landscape) {
+    .headline-item.actions {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+    }
+}
+
+.headline-item.video {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: center;
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+}
+
+@media (orientation: landscape) {
+    .headline-item.video {
+        grid-column: 1 / 4;
+        grid-row: 1 / 5;
+    }
+}
+
+.headline.youtube-window {
+    padding-top: 50%;
+    padding-left: 50%;
+}
+
+.video {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.video iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.youtube-channel {
+    margin: 8px 12px;
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.follow-us {
+    margin: auto 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#btn-youtube {
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    background: url("../images/youtube.svg");
+    background-size: 36px 36px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+}
+
+@media (orientation: portrait) and (min-width: 321px),
+(orientation: landscape) {
+    #btn-youtube {
+        width: 42px;
+        height: 42px;
+        background-size: 42px 42px;
+    }
+}
+
+.hide {
+    visibility: none;
+}
