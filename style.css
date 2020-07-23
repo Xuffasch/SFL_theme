@@ -250,8 +250,6 @@ body {
 }
 
 .section-container {
-    padding-top: 4px;
-    padding-bottom: 4px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -260,7 +258,7 @@ body {
 
 .section-position {
     position: relative;
-    top: -54px;
+    top: -63px;
 }
 
 .section-title {

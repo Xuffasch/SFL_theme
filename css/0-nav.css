@@ -65,11 +65,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    /* background */
-    background: linear-gradient(rgb(0, 0, 0, 0.35), rgb(0, 0, 0, 0.005));
 }
 
 .nav-container * {
+    color: white;
+}
+
+.black-back {
+    background-color: rgba(0, 0, 0, 0);
     color: white;
 }
 
