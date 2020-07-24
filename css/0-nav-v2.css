@@ -116,24 +116,41 @@
     margin: 8px;
 }
 
-
-/* .menu g path {
-    stroke: white;
-} */
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 a.menu-icon>svg {
     height: 24px;
     width: 24px;
 }
 
+@media (orientation: portrait) and (min-width: 374px) {
+    a.menu-icon>svg {
+        height: 28px;
+        width: 28px;
+    }
+}
+
+@media (orientation: landscape) {
+    a.menu-icon>svg {
+        height: 32px;
+        width: 32px;
+    }
+}
+
 a.menu-icon>svg:hover path {
     fill: gold;
 }
 
-#item-228>svg:hover path {
+
+/* #item-228>svg:hover path {
     fill: gold;
     stroke: gold;
-}
+} */
 
 .logged {
     fill: orange;
@@ -142,4 +159,40 @@ a.menu-icon>svg:hover path {
 
 #item-228>svg:active path {
     background-color: white;
+}
+
+#cart-content {
+    position: relative;
+    top: 4px;
+}
+
+@media (orientation: portrait) and (min-width: 374px),
+(orientation: landscape) {
+    #cart-content {
+        position: relative;
+        top: 6px;
+    }
+}
+
+.cart-item-counter {
+    position: relative;
+    top: -12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (orientation: portrait) and (min-width: 374px),
+(orientation: landscape) {
+    .cart-item-counter {
+        top: -15px;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 665px) {
+    .cart-item-counter {
+        top: -18px;
+    }
 }

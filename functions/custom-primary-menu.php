@@ -8,6 +8,7 @@ function custom_primary_menu() {
   foreach( $primaryNav as $navItem ) {
     $logged = "";
     $icon = "";
+    $cart_counter = "";
     switch ($navItem->ID) {
       case 224:
         $icon = file_get_contents(get_template_directory()."/images/products/market-bw.svg");
@@ -24,9 +25,10 @@ function custom_primary_menu() {
         break;
       case 227:
         $icon = file_get_contents(get_template_directory()."/images/products/basket-round.svg");
+        $cart_counter = "<div class='cart-item-counter'><h2 id='cart-counter'>99</h2></div>";
         break;
     }
 
-    echo '<li class="menu-item"><a href="'.$navItem->url.'" alt="'.$navItem->title.'" class="menu-icon '.$logged.'" id="item-'.$navItem->ID.'">'.$icon.'</a></li>';
+    echo '<li class="menu-item"><a href="'.$navItem->url.'" alt="'.$navItem->title.'" class="menu-icon '.$logged.'" id="item-'.$navItem->ID.'">'.$icon.'</a>'.$cart_counter.'</li>';
   }
 }
