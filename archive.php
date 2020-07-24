@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header("v2"); ?>
   <div class="container-grid" id="products-type">
     <div class="section-container">
       <div class="top-bar">

@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header( "v2" ); ?>
   <div class="container-grid" id="front-page">
     <!-- <--?php get_template_part('parts/0-landing-video') ?> -->
     <?php get_template_part('parts/0-landing-video-v2') ?>

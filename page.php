@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header("v2"); ?>
   <div class="container-grid">
     <?php while ( have_posts() ) : the_post(); ?>
       

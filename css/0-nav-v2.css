@@ -1,0 +1,145 @@
+.site-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.menu-button {
+    display: inline-block;
+    border: 0;
+    background-color: transparent;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 32px;
+    height: 6px;
+    background-color: white;
+    margin: 6px;
+    transition: 0.4s;
+    border-radius: 3px;
+}
+
+
+/* nav menu button animation when clicked */
+
+.change>div {
+    background-color: gold;
+}
+
+.change .bar1 {
+    /* Rotate first bar */
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    /* Fade out the second bar */
+    opacity: 0;
+}
+
+.change .bar3 {
+    /* Rotate last bar */
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.header-container {
+    /* Position */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.nav-container {
+    /* appearence */
+    width: 100%;
+    background-color: transparent;
+    height: auto;
+    /* children display */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-container * {
+    color: white;
+}
+
+.black-back {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+.btn-container>button:hover>div {
+    background-color: gold;
+}
+
+.logo-container {
+    flex: 0 0 auto;
+    padding: 8px;
+}
+
+.site-title {
+    flex: 2 1 auto;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.menu-container {
+    display: none;
+    margin-left: auto;
+}
+
+.stretch {
+    flex: 0 0 auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    margin: 8px;
+}
+
+
+/* .menu g path {
+    stroke: white;
+} */
+
+a.menu-icon>svg {
+    height: 24px;
+    width: 24px;
+}
+
+a.menu-icon>svg:hover path {
+    fill: gold;
+}
+
+#item-228>svg:hover path {
+    fill: gold;
+    stroke: gold;
+}
+
+.logged {
+    fill: orange;
+    stroke: orange;
+}
+
+#item-228>svg:active path {
+    background-color: white;
+}
