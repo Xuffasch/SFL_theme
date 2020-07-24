@@ -42,11 +42,19 @@ function sfl_scripts_and_styles() {
   $template_folder = get_template_directory_uri();
 
   wp_enqueue_style( 'style', get_stylesheet_uri(), array() );
-  wp_enqueue_style( 'nav', get_stylesheet_directory_uri().'/css/0-nav.css', array('style'));
+  wp_enqueue_style( 'nav', get_stylesheet_directory_uri().'/css/0-nav-v2.css', array('style'));
   wp_enqueue_style( 'legal', get_stylesheet_directory_uri().'/css/99-legal.css', array('style') ); 
 
+  wp_enqueue_script( "menu-button", $template_folder."/js/menu-button.js", array("jquery"), '1.0', true );
+
+  wp_localize_script( 
+    'menu-button', 
+    'currentState', 
+    array( 'logged' => is_user_logged_in() ),
+    array( 'jquery' )
+  );
+
   if ( is_front_page() ) {
-    // wp_enqueue_style( 'landing-video', $template_folder.'/css/0-landing-video.css', array('style') );
     wp_enqueue_style( 'landing-video-v2', $template_folder.'/css/0-landing-video-v2.css', array('style') );
     wp_enqueue_style( 'services', $template_folder.'/css/10-services.css', array('style') );
     wp_enqueue_style( 'products', $template_folder.'/css/20-products.css', array('style') );
@@ -61,8 +69,16 @@ function sfl_scripts_and_styles() {
 
     wp_enqueue_script( "quantifier", $template_folder."/js/products-quantifier.js", array("jquery"), '1.0', true );
 
-    // Declare the variable ajaxurl to be called in products-quantifier.js to retrieve the url to send the ajax request
-    wp_localize_script( "quantifier", 'ajaxurl', admin_url( 'admin-ajax.php' ));   
+    // Declare the variable ajaxurl to be called in products-quantifier.js to retrieve the url to send the ajax request 
+    wp_localize_script( 
+      "quantifier", 
+      'helper', 
+      array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'logginState' => is_user_logged_in(),
+      ),
+      array('jquery')
+    ); 
 
     wp_enqueue_script( "search", $template_folder."/js/search.js", array("jquery"));
 
@@ -95,3 +111,5 @@ require_once( get_template_directory().'/inc/menus.php' );
 require_once( get_template_directory().'/inc/sidebars.php' );
 
 require_once( get_template_directory().'/functions/product-search.php');
+
+require_once( get_template_directory().'/functions/custom-primary-menu.php');

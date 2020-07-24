@@ -19,7 +19,7 @@ let addQuantity = function() {
 
     jQuery.ajax({
         type: "POST",
-        url: ajaxurl,
+        url: helper.ajaxurl,
         data: {
             action: "add_one_quantity",
             product_id: this.id,
@@ -68,7 +68,7 @@ let removeQuantity = function() {
 
     jQuery.ajax({
         type: "POST",
-        url: ajaxurl,
+        url: helper.ajaxurl,
         data: {
             action: "remove_one_quantity",
             product_id: this.id,
@@ -118,7 +118,7 @@ let updateQuantity = function() {
 
         jQuery.ajax({
             type: "POST",
-            url: ajaxurl,
+            url: helper.ajaxurl,
             data: {
                 action: "update_quantity",
                 product_id: productId,
