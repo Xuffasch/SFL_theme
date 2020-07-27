@@ -29,6 +29,8 @@ let addQuantity = function() {
         success: function(output) {
             jQuery("#messages").text(output.data.success);
 
+            jQuery("#cart-counter").text(output.data.cart_counter);
+
             if (jQuery("#" + output.data.itemId).length == 0) {
                 jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;
             }
@@ -77,6 +79,8 @@ let removeQuantity = function() {
         },
         success: function(output) {
             jQuery("#messages").text(output.data.success);
+
+            jQuery("#cart-counter").text(output.data.cart_counter);
 
             let listItem = jQuery("#" + output.data.itemId);
             let resultItem = jQuery("#" + output.data.itemId + ".result-item");
@@ -132,6 +136,8 @@ let updateQuantity = function() {
                 console.log('new quantity : ' + output.data.newQty);
 
                 jQuery("#messages").text(output.data.success);
+
+                jQuery("#cart-counter").text(output.data.cart_counter);
 
                 if (jQuery("#" + output.data.itemId).length == 0) {
                     jQuery(".counter-" + output.data.productId)[0].id = output.data.itemId;

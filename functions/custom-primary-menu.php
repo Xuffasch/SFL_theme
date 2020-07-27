@@ -25,7 +25,8 @@ function custom_primary_menu() {
         break;
       case 227:
         $icon = file_get_contents(get_template_directory()."/images/products/basket-round.svg");
-        $cart_counter = "<div class='cart-item-counter'><h2 id='cart-counter'>99</h2></div>";
+        $count =  WC()->cart->get_cart_contents_count();
+        $cart_counter = "<div class='cart-item-counter'><h2 id='cart-counter'>".$count."</h2></div>";
         break;
     }
 

@@ -11,12 +11,14 @@ function update_cart() {
 
   $cart_item = WC()->cart->get_cart_item($cart_item_id);
   $newQty = $cart_item["quantity"];
+  $cart_count = WC()->cart->get_cart_contents_count();
 
   $ok = array( 
     'success' => "New quantity for ".$cart_item['data']->get_title()." : ".$newQty, 
     'productId' => $_REQUEST["product_id"], 
     'itemId' => $cart_item_id, 
-    'newQty' => $newQty 
+    'newQty' => $newQty,
+    'cart_counter' => $cart_count
   );
 
   wp_send_json_success($ok);
