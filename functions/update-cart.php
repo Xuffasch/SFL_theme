@@ -11,7 +11,9 @@ function update_cart() {
 
   $cart_item = WC()->cart->get_cart_item($cart_item_id);
   $newQty = $cart_item["quantity"];
-  $cart_count = WC()->cart->get_cart_contents_count();
+
+  $currentCount = count( WC()->cart->get_cart() );
+  $cart_count = ( $newQty == 0 ) ? $currentCount - 1 : $currentCount;
 
   $ok = array( 
     'success' => "New quantity for ".$cart_item['data']->get_title()." : ".$newQty, 

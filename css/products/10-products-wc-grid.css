@@ -2,6 +2,24 @@ body {
     background-color: #fff3e0;
 }
 
+.nav-container {
+    background-color: orange;
+    color: black;
+}
+
+.site-title {
+    flex: 2 1 auto;
+    padding: 12px;
+    font-size: 16px;
+    color: #222;
+}
+
+.cart-item-counter h2 {
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .section-container {
     width: 90%;
     margin: 55px auto 0 auto;

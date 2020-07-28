@@ -25,13 +25,9 @@
             </a>
           </div>
           <!-- 2. Site title -->
-          <h1 class="site-title">SFL Distribution version 2</h1>
+          <h1 class="site-title">SFL Distribution</h1>
           <!-- 3b. Custom menu for theme_location = primary -->
-          <div class="menu-container">
-            <ul id="menu-menu-sfl" class="menu">
-              <?php custom_primary_menu(); ?>
-            </ul>
-          </div>
+          <?php custom_primary_menu(); ?>
           <!-- 4. Menu button for mobile navigation -->
           <div class="btn-container">
             <button class="menu-button" id="menu-button">
