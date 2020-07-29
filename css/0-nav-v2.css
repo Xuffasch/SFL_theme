@@ -131,8 +131,18 @@
 }
 
 a.menu-icon>svg {
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
+}
+
+#my-account>.cart-background-filler {
+    width: 28px;
+    height: 28px;
+}
+
+#cart-content {
+    width: 28px;
+    height: 28px;
 }
 
 @media (orientation: portrait) and (min-width: 374px) {
@@ -140,12 +150,32 @@ a.menu-icon>svg {
         height: 28px;
         width: 28px;
     }
+    #my-account>.cart-background-filler {
+        width: 28px;
+        height: 28px;
+    }
+    .cart-icon>svg {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 @media (orientation: landscape) {
     a.menu-icon>svg {
         height: 32px;
         width: 32px;
+    }
+    #my-account>.cart-background-filler {
+        width: 32px;
+        height: 32px;
+    }
+    .cart-icon>svg {
+        width: 32px;
+        height: 32px;
+    }
+    #cart-content {
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -166,22 +196,14 @@ div.cart-counter:hover>a>svg path {
     fill: gold;
 }
 
-#cart-content {
+.cart-background-filler {
     position: relative;
-    top: 8px;
-}
-
-@media (orientation: portrait) and (min-width: 374px),
-(orientation: landscape) {
-    #cart-content {
-        position: relative;
-        top: 8px;
-    }
+    top: -2px;
 }
 
 .cart-item-counter {
     position: relative;
-    top: -12px;
+    top: -22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -189,21 +211,14 @@ div.cart-counter:hover>a>svg path {
     text-align: center;
 }
 
+@media (orientation: landscape) {
+    .cart-item-counter {
+        top: -24px;
+    }
+}
+
 .cart-item-counter h2 {
     color: white;
     font-size: 14px;
     font-weight: 500;
-}
-
-@media (orientation: portrait) and (min-width: 374px),
-(orientation: landscape) {
-    .cart-item-counter {
-        top: -14px;
-    }
-}
-
-@media (orientation: landscape) and (min-width: 665px) {
-    .cart-item-counter {
-        top: -18px;
-    }
 }
