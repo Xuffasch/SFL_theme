@@ -26,7 +26,14 @@
         </div> 
       </div>
       <div class="results">
-        <?php echo do_shortcode('[products limit="7" columns="2" paginate="true"]'); ?>
+        <?php
+          if ( isset($_GET["product_cat"]) ) {
+            echo do_shortcode('[products limit="7" columns="2" paginate="true" category='.$_GET["product_cat"].']');
+          } else {
+            echo do_shortcode('[products limit="7" columns="2" paginate="true"]');
+          }
+        ?>
+        <!-- <--?php echo do_shortcode('[products limit="7" columns="2" paginate="true" category='.$_GET["product_cat"].']'); ?> -->
         <div class="results-search invisible">
           <div id="loading" class="invisible">
             <?php echo file_get_contents( get_template_directory()."/images/refresh.svg"); ?>
